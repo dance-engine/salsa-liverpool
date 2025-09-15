@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { FaFacebookSquare, FaInstagramSquare } from "react-icons/fa";
 import Map from "./MapClient";
 
@@ -33,8 +34,8 @@ export default function Home() {
 
       </main>
       <footer className="row-start-3 flex gap-[14px] flex-wrap items-center justify-center">
-       <div className="flex items-center gap-2"><FaFacebookSquare className="text-[#1877F2] w-6 h-6"/> Salsa Liverpool</div>
-       <div className="flex items-center gap-2"><FaInstagramSquare className="text-[#c92bb7] w-6 h-6" /> @salsaliverpool</div>
+       <Link href="https://fb.me/salsaliverpool" className="flex items-center gap-2"><FaFacebookSquare className="text-[#1877F2] w-6 h-6"/> Salsa Liverpool</Link>
+       <Link href="https://instagram.com/salsaliverpool" className="flex items-center gap-2"><FaInstagramSquare className="text-[#c92bb7] w-6 h-6" /> @salsaliverpool</Link>
       </footer>
     </div>
   );
