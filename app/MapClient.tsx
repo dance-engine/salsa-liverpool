@@ -24,7 +24,7 @@ const Map = ({width,height, lat, lng}:{ width: number, height: number, lat: numb
     
   // const { width = DEFAULT_WIDTH, height = DEFAULT_HEIGHT } = props;
   return (
-    <div style={{ aspectRatio: `${width || DEFAULT_WIDTH}/${height || DEFAULT_HEIGHT}` }} className="w-full h-[300px]">
+    <div /*style={{ aspectRatio: `${width || DEFAULT_WIDTH}/${height || DEFAULT_HEIGHT}` }}*/ className="w-full h-[300px] max-w-full">
       <MapDynamic lat={lat} lng={lng} />
     </div>
   )

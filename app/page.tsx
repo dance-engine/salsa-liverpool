@@ -5,11 +5,11 @@ import Map from "./MapClient";
 export default function Home() {
   return (
     <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center justify-center">
+      <main className="flex flex-col gap-[32px] row-start-2 items-center justify-center max-w-full">
 
         <Image src="salsa-liverpool-logo.svg" width={300} height={300} alt="Salsa Liverpool" />
 
-        <div className="text-center sm:text-left max-w-lg leading-[28px] text-foreground">
+        <div className="text-center sm:text-left max-w-2xl leading-[28px] text-foreground">
           <p className="mb-2">
             Salsa Liverpool is a community dedicated to promoting and celebrating salsa dancing in Liverpool. We organize regular social dance events, workshops, and performances to bring together salsa enthusiasts of all levels.
           </p>
