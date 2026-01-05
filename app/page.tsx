@@ -1,4 +1,4 @@
-ne arrimport Image from "next/image";
+import Image from "next/image";
 import Link from "next/link";
 import { FaFacebookSquare, FaInstagramSquare } from "react-icons/fa";
 import Map from "./MapClient";
