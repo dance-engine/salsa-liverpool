@@ -25,7 +25,7 @@ export default function Home() {
           <h2 className="text-xl mt-3">What</h2>
           <p className="">Rueda classes with a selection of teachers at all levels. Rueda means we are constantly changing partner so no partner is necessary and beginners are 100% welcome.</p>
           <h2 className="text-xl mt-3">When</h2>
-          <p className="">Every Sunday at 7pm we start our first of two classes with the more advanced of each level being taught at 8pm. Then, after class, we keep the music playing for you to socialise and practice your moves with other dancers.</p>
+          <p className="">Every Sunday at 7pm we signin downstairs ready to get started. Then we have the first of two classes with the more advanced of each level being taught around 8:30pm. Then, after class, we keep the music playing for you to socialise and practice your moves with other dancers.</p>
           <h2 className="text-xl mt-3">Where</h2>          
           <p className="">Arts Bar Liverpool, 22 Hope St, Liverpool L1 9BY</p>
           <Map width={600} height={300} lat={53.402857320356524} lng={-2.969928364417614} />
