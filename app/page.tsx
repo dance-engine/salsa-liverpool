@@ -266,13 +266,13 @@ export default function Home() {
           <div className="mt-6 grid gap-6 lg:grid-cols-2">
             {/* Left: Flagship Sunday */}
             <div className="skeuo-card rounded-3xl p-6">
-              <div className="flex items-center justify-between gap-4">
-                <div>
+              <div className="flex flex-wrap items-start justify-between gap-3">
+                <div className="min-w-0">
                   <div className="text-2xl font-bold">{sundayArtsBar.title}</div>
                   <div className="text-white/70 mt-1">{sundayArtsBar.day}</div>
                   <div className="text-white/70">{sundayArtsBar.venue}</div>
                 </div>
-                <div className="skeuo-chip rounded-2xl px-4 py-2 text-sm font-semibold">
+                <div className="skeuo-chip rounded-2xl px-4 py-2 text-sm font-semibold flex-shrink-0">
                   Sunday
                 </div>
               </div>
@@ -287,7 +287,15 @@ export default function Home() {
 
                     {/* If this is a parallel block, render “tracks” */}
                     {s.parallel ? (
-                      <div className={`mt-3 grid gap-3 ${s.parallel.length === 2 ? 'grid-cols-2' : s.parallel.length === 3 ? 'grid-cols-3' : 'grid-cols-1'}`}>
+                      <div
+                          className={`mt-3 grid gap-3 grid-cols-1 ${
+                            s.parallel.length === 2
+                              ? "sm:grid-cols-2"
+                              : s.parallel.length === 3
+                              ? "sm:grid-cols-2 lg:grid-cols-3"
+                              : ""
+                          }`}
+                        >
                         {s.parallel.map((p) => (
                           <div
                             key={p.level}
@@ -317,8 +325,8 @@ export default function Home() {
 
             {/* Right: Other classes list */}
             <div className="skeuo-card rounded-3xl p-6">
-              <div className="flex items-center justify-between gap-4">
-                <div>
+              <div className="flex flex-wrap items-start justify-between gap-3">
+              <div className="min-w-0 flex-1">
                   <div className="text-2xl font-bold">Other classes</div>
                   <p className="mt-2 text-white/75">
                     Extra sessions we run around the city. Click through for full details.
@@ -332,7 +340,7 @@ export default function Home() {
                     <div className="flex items-start justify-between gap-4">
                       <div className="min-w-0">
                         <div className="flex items-center gap-2">
-                          <div className="font-semibold truncate">{c.title}</div>
+                          <div className="font-semibold sm:truncate">{c.title}</div>
                           {c.badge ? (
                             <span className="text-xs skeuo-chip rounded-full px-2 py-1 text-white/80">
                               {c.badge}
