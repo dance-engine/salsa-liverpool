@@ -5,6 +5,7 @@ import { MdLocationOn, MdSchedule, MdPeople, MdBolt } from "react-icons/md";
 import HeroMapModal from "./HeroMapModal";
 import { FilledButtonLink, OutlinedButtonLink } from "./ButtonLink";
 import MobileNav from "./MobileNav";
+import TeamCarousel from "./TeamCarousel";
 import {
   directionsHref,
   founder,
@@ -37,6 +38,22 @@ const vibeIcons = {
   schedule: <MdSchedule className="w-5 h-5" />,
   location: <MdLocationOn className="w-5 h-5" />,
 } as const;
+
+const orderedTeam = (() => {
+  if (team.length <= 1) {
+    return team;
+  }
+
+  const [first, ...rest] = team;
+  const shuffled = [...rest];
+
+  for (let i = shuffled.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+
+  return [first, ...shuffled];
+})();
 
 export default function Home() {
   return (
@@ -336,63 +353,8 @@ export default function Home() {
                 A friendly crew of teachers and helpers who want you to feel comfortable from minute one.
               </p>
             </div>
-
-            {/* optional hint (mobile) */}
-            <div className="hidden sm:block text-sm text-white/75">
-              Scroll →
-            </div>
           </div>
-
-          {/* horizontal scroll rail */}
-          <div className="mt-6 -mx-4 px-4">
-            <div
-              className="
-                flex gap-5 overflow-x-auto pb-4
-                snap-x snap-mandatory
-                [scrollbar-width:thin]
-                [-webkit-overflow-scrolling:touch]
-              "
-            >
-              {[team[0],...team.slice(1,).sort(() => 0.5 - Math.random())].map((m) => (
-                <div
-                  key={m.name}
-                  className="
-                    skeuo-card rounded-3xl overflow-hidden
-                    snap-start
-                    min-w-[280px] w-[280px]
-                    sm:min-w-[320px] sm:w-[320px]
-                    lg:min-w-[340px] lg:w-[340px]
-                    flex-shrink-0
-                  "
-                >
-                  <div className="relative h-44 w-full bg-white/5">
-                    <Image
-                      src={m.img}
-                      alt={m.name}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 640px) 280px, (max-width: 1024px) 320px, 340px"
-                    />
-                  </div>
-
-                  <div className="p-5">
-                    <div className="font-bold">{m.name}</div>
-                    <div className="text-sm text-white/80">{m.role}</div>
-
-                    {m.bio?.trim() ? (
-                      <p className="mt-3 text-sm text-white/85 leading-relaxed">{m.bio}</p>
-                    ) : (
-                      <p className="mt-3 text-sm text-white/65 italic">Bio coming soon.</p>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="mt-2 text-sm text-white/75">
-            Tip: you can swipe on mobile / trackpad, or hold Shift and scroll with your mouse wheel.
-          </div>
+          <TeamCarousel members={orderedTeam} />
         </section>
 
         {/* History */}
