@@ -178,11 +178,11 @@ export default function Home() {
             <Image src="/salsa-liverpool-logo.svg" width={44} height={44} alt="Salsa Liverpool" />
             <div className="leading-tight">
               <div className="font-semibold">Salsa Liverpool</div>
-              <div className="text-sm text-white/70">Cuban Salsa • Rueda de Casino • Liverpool</div>
+              <div className="text-sm text-white/80">Cuban Salsa • Rueda de Casino • Liverpool</div>
             </div>
           </div>
 
-          <nav className="hidden sm:flex items-center gap-4 text-sm text-white/80">
+          <nav className="hidden sm:flex items-center gap-4 text-sm text-white/90">
             <a className="hover:text-white" href="#classes">Classes</a>
             <a className="hover:text-white" href="#style">Style</a>
             <a className="hover:text-white" href="#vibe">Vibe</a>
@@ -215,7 +215,7 @@ export default function Home() {
               Learn Salsa the fun way — with a proper community.
             </h1>
 
-            <p className="mt-4 text-white/75 text-lg leading-relaxed max-w-xl">
+            <p className="mt-4 text-white/85 text-lg leading-relaxed max-w-xl">
               We teach <strong>Cuban Salsa</strong> and <strong>Rueda de Casino</strong>: musical, playful, and social.
               Clear teaching, welcoming vibe, and a class structure that makes it easy to show up.
             </p>
@@ -236,7 +236,7 @@ export default function Home() {
               ].map((x) => (
                 <div key={x.label} className="skeuo-chip rounded-2xl p-3">
                   <div className="text-sm font-semibold">{x.label}</div>
-                  <div className="text-xs text-white/70 mt-1">{x.sub}</div>
+                  <div className="text-xs text-white/80 mt-1">{x.sub}</div>
                 </div>
               ))}
             </div>
@@ -246,16 +246,16 @@ export default function Home() {
           <div className="skeuo-card-strong rounded-3xl p-5 sm:p-6">
             <div className="flex items-start justify-between gap-4">
               <div>
-                <div className="text-sm text-white/70">Next up</div>
+                <div className="text-sm text-white/80">Next up</div>
                 <div className="text-2xl font-bold mt-1">{sundayArtsBar.title}</div>
-                <div className="text-white/70 mt-2">{sundayArtsBar.day} • {sundayArtsBar.time}</div>
-                <div className="text-white/70 mt-1">{sundayArtsBar.venue} — {sundayArtsBar.address}</div>
+                <div className="text-white/80 mt-2">{sundayArtsBar.day} • {sundayArtsBar.time}</div>
+                <div className="text-white/80 mt-1">{sundayArtsBar.venue} — {sundayArtsBar.address}</div>
               </div>
             </div>
 
             <div className="mt-4">
               <Map width={600} height={300} lat={sundayArtsBar.lat} lng={sundayArtsBar.lng} />
-              <div className="text-xs text-white/60 mt-2">
+              <div className="text-xs text-white/75 mt-2">
                 Tip: click the map marker to open directions.
               </div>
             </div>
@@ -265,7 +265,7 @@ export default function Home() {
         {/* Classes */}
         <section id="classes" className="mt-14">
           <h2 className="text-3xl font-black">Classes</h2>
-          <p className="mt-2 text-white/75 max-w-3xl">
+          <p className="mt-2 text-white/85 max-w-3xl">
             The goal is simple: make it easy to start, easy to improve, and easy to feel part of the room.
           </p>
 
@@ -275,8 +275,8 @@ export default function Home() {
               <div className="flex flex-wrap items-start justify-between gap-3">
                 <div className="min-w-0">
                   <div className="text-2xl font-bold">{sundayArtsBar.title}</div>
-                  <div className="text-white/70 mt-1">{sundayArtsBar.day}</div>
-                  <div className="text-white/70">{sundayArtsBar.venue}</div>
+                  <div className="text-white/80 mt-1">{sundayArtsBar.day}</div>
+                  <div className="text-white/80">{sundayArtsBar.venue}</div>
                 </div>
                 <div className="skeuo-chip rounded-2xl px-4 py-2 text-sm font-semibold flex-shrink-0">
                   Sunday
@@ -288,7 +288,7 @@ export default function Home() {
                   <div key={`${s.time}-${s.label}`} className="skeuo-chip rounded-2xl p-4">
                     <div className="flex items-baseline justify-between gap-4">
                       <div className="font-semibold">{s.label}</div>
-                      <div className="text-sm text-white/70">{s.time}</div>
+                      <div className="text-sm text-white/80">{s.time}</div>
                     </div>
 
                     {/* If this is a parallel block, render “tracks” */}
@@ -313,18 +313,18 @@ export default function Home() {
                             <div className="text-xs skeuo-chip rounded-full px-2 py-1 text-white/80 inline-block">
                               {p.level}
                             </div>
-                            <div className="text-sm text-white/75 mt-2">{p.detail}</div>
+                            <div className="text-sm text-white/85 mt-2">{p.detail}</div>
                           </div>
                         ))}
                       </div>
                     ) : (
-                      <div className="text-sm text-white/75 mt-1">{s.detail}</div>
+                      <div className="text-sm text-white/85 mt-1">{s.detail}</div>
                     )}
                   </div>
                 ))}
               </div>
 
-              <ul className="mt-5 space-y-2 text-sm text-white/75">
+              <ul className="mt-5 space-y-2 text-sm text-white/85">
                 {sundayArtsBar.notes.map((n) => <li key={n}>• {n}</li>)}
               </ul>
             </div>
@@ -334,7 +334,7 @@ export default function Home() {
               <div className="flex flex-wrap items-start justify-between gap-3">
               <div className="min-w-0 flex-1">
                   <div className="text-2xl font-bold">Other classes</div>
-                  <p className="mt-2 text-white/75">
+                  <p className="mt-2 text-white/85">
                     Extra sessions we run around the city. Click through for full details.
                   </p>
                 </div>
@@ -353,8 +353,8 @@ export default function Home() {
                             </span>
                           ) : null}
                         </div>
-                        <div className="text-sm text-white/70 mt-1">{c.when}</div>
-                        <div className="text-sm text-white/70">{c.where}</div>
+                        <div className="text-sm text-white/80 mt-1">{c.when}</div>
+                        <div className="text-sm text-white/80">{c.where}</div>
                       </div>
 
                       <Link
@@ -372,7 +372,7 @@ export default function Home() {
                 {/* Optional: keep your “want updates” block, but slimmer */}
                 <div className="skeuo-card-strong rounded-2xl p-4">
                   <div className="font-semibold">Want updates?</div>
-                  <div className="text-sm text-white/75 mt-1">
+                  <div className="text-sm text-white/85 mt-1">
                     Follow Instagram for the latest classes, socials, and workshops.
                   </div>
                   <div className="mt-3 flex gap-3 flex-wrap">
@@ -397,19 +397,19 @@ export default function Home() {
           <div className="mt-6 grid gap-6 lg:grid-cols-2">
             <div className="skeuo-card rounded-3xl p-6">
               <h3 className="text-xl font-bold">Cuban Salsa & Rueda de Casino</h3>
-              <p className="mt-3 text-white/75 leading-relaxed">
+              <p className="mt-3 text-white/85 leading-relaxed">
                 Cuban salsa is social, rhythmic, and playful. <strong>Rueda</strong> is salsa danced in a circle,
                 where a caller cues moves and everyone swaps partners — it’s the easiest way to meet people and
                 learn fast without needing to bring someone with you.
               </p>
-              <p className="mt-3 text-white/75 leading-relaxed">
+              <p className="mt-3 text-white/85 leading-relaxed">
                 We focus on timing, musicality, good basics, and the confidence to dance with anyone — not just memorising moves.
               </p>
             </div>
 
             <div className="skeuo-card rounded-3xl p-6">
               <h3 className="text-xl font-bold">Our aims</h3>
-              <ul className="mt-3 space-y-2 text-white/75">
+              <ul className="mt-3 space-y-2 text-white/85">
                 <li>• Make salsa feel welcoming (especially for first-timers).</li>
                 <li>• Build strong fundamentals — timing, rhythm, clarity.</li>
                 <li>• Keep it fun, social, and community-led.</li>
@@ -422,7 +422,7 @@ export default function Home() {
         {/* Vibe */}
         <section id="vibe" className="mt-14">
           <h2 className="text-3xl font-black">The vibe</h2>
-          <p className="mt-2 text-white/75 max-w-3xl">
+          <p className="mt-2 text-white/85 max-w-3xl">
             If you’re nervous: totally normal. These are designed to feel friendly, organised, and relaxed.
           </p>
 
@@ -431,7 +431,7 @@ export default function Home() {
               <div key={v.title} className="skeuo-card rounded-3xl p-5">
                 <div className="skeuo-chip w-fit rounded-2xl p-2">{v.icon}</div>
                 <div className="mt-3 font-bold">{v.title}</div>
-                <div className="mt-2 text-sm text-white/75">{v.text}</div>
+                <div className="mt-2 text-sm text-white/85">{v.text}</div>
               </div>
             ))}
           </div>
@@ -442,13 +442,13 @@ export default function Home() {
           <div className="flex items-end justify-between gap-4">
             <div>
               <h2 className="text-3xl font-black">Meet the team</h2>
-              <p className="mt-2 text-white/75 max-w-3xl">
+              <p className="mt-2 text-white/85 max-w-3xl">
                 A friendly crew of teachers and helpers who want you to feel comfortable from minute one.
               </p>
             </div>
 
             {/* optional hint (mobile) */}
-            <div className="hidden sm:block text-sm text-white/60">
+            <div className="hidden sm:block text-sm text-white/75">
               Scroll →
             </div>
           </div>
@@ -487,12 +487,12 @@ export default function Home() {
 
                   <div className="p-5">
                     <div className="font-bold">{m.name}</div>
-                    <div className="text-sm text-white/70">{m.role}</div>
+                    <div className="text-sm text-white/80">{m.role}</div>
 
                     {m.bio?.trim() ? (
-                      <p className="mt-3 text-sm text-white/75 leading-relaxed">{m.bio}</p>
+                      <p className="mt-3 text-sm text-white/85 leading-relaxed">{m.bio}</p>
                     ) : (
-                      <p className="mt-3 text-sm text-white/50 italic">Bio coming soon.</p>
+                      <p className="mt-3 text-sm text-white/65 italic">Bio coming soon.</p>
                     )}
                   </div>
                 </div>
@@ -500,7 +500,7 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="mt-2 text-sm text-white/60">
+          <div className="mt-2 text-sm text-white/75">
             Tip: you can swipe on mobile / trackpad, or hold Shift and scroll with your mouse wheel.
           </div>
         </section>
@@ -508,7 +508,7 @@ export default function Home() {
         {/* History */}
         <section id="history" className="mt-14">
           <h2 className="text-3xl font-black">Our story</h2>
-          <p className="mt-2 text-white/75 max-w-3xl">
+          <p className="mt-2 text-white/85 max-w-3xl">
             Salsa Liverpool has always been about community first — the dancing comes with it.
           </p>
 
@@ -530,14 +530,14 @@ export default function Home() {
                   <div className="flex items-start justify-between gap-3">
                     <div>
                       <div className="text-xl font-bold">{founder.name}</div>
-                      <div className="text-sm text-white/70">{founder.role}</div>
+                      <div className="text-sm text-white/80">{founder.role}</div>
                     </div>
                     <div className="skeuo-chip rounded-full px-3 py-1 text-xs font-semibold text-white/80">
                       Founder
                     </div>
                   </div>
 
-                  <p className="mt-4 text-sm text-white/75 leading-relaxed">
+                  <p className="mt-4 text-sm text-white/85 leading-relaxed">
                     {founder.bio}
                   </p>
                 </div>
@@ -546,7 +546,7 @@ export default function Home() {
 
             {/* Right: Story */}
             <div className="skeuo-card-strong rounded-3xl p-7">
-              <div className="space-y-5 text-white/75 leading-relaxed">
+              <div className="space-y-5 text-white/85 leading-relaxed">
                 <p>
                   Salsa Liverpool was founded by <strong className="text-white">Karen</strong>, who helped shape the salsa scene
                   in the city by creating a consistent place to learn, practise, and meet people. Over the years, the classes
@@ -560,7 +560,7 @@ export default function Home() {
 
                 <div className="skeuo-chip rounded-2xl p-5">
                   <div className="font-semibold text-white">A new era</div>
-                  <p className="mt-2 text-sm text-white/75 leading-relaxed">
+                  <p className="mt-2 text-sm text-white/85 leading-relaxed">
                     We’re building on Karen’s foundation — keeping the warmth and community — while making the experience
                     clearer and more modern: better class structure, clearer levels, and an easy way for new people to join.
                   </p>
@@ -578,7 +578,7 @@ export default function Home() {
         {/* Gallery */}
         <section className="mt-14">
           <h2 className="text-3xl font-black">Gallery</h2>
-          <p className="mt-2 text-white/75 max-w-3xl">
+          <p className="mt-2 text-white/85 max-w-3xl">
             A glimpse of the nights — classes, socials, and the people that make it what it is.
           </p>
 
@@ -595,7 +595,7 @@ export default function Home() {
 
         {/* Footer */}
         <footer className="mt-16 border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <div className="text-sm text-white/70">
+          <div className="text-sm text-white/80">
             © {new Date().getFullYear()} Salsa Liverpool
           </div>
           <div className="flex gap-4 items-center">
