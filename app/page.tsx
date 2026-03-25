@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaFacebookSquare, FaInstagramSquare } from "react-icons/fa";
 import { MdLocationOn, MdSchedule, MdPeople, MdBolt } from "react-icons/md";
+import ClassLevelGroup from "./ClassLevelGroup";
 import HeroMapModal from "./HeroMapModal";
 import { FilledButtonLink, OutlinedButtonLink } from "./ButtonLink";
 import SiteHeader from "./SiteHeader";
@@ -152,38 +153,16 @@ export default function Home() {
 
                     {/* If this is a parallel block, render “tracks” */}
                     {s.parallel ? (
-                      <div
-                          className={`mt-3 grid gap-4 grid-cols-1 ${
-                            s.parallel.length === 2
-                              ? "sm:grid-cols-2"
-                              : s.parallel.length === 3
-                              ? "sm:grid-cols-2 lg:grid-cols-3"
-                              : ""
-                          }`}
-                        >
-                        {s.parallel.map((p) => (
-                          p.level != "" ? (
-                          <div
-                            key={p.level}
-                            className="rounded-lg border flex flex-col h-full border-white/15  p-3"
-                          >
-                            
-                            <div className="flex items-center justify-between gap-3">
-                              <div className="font-semibold">{p.label}</div>
-                            </div>
-                            
-                            <div className="text-sm text-white/85 mt-2">{p.detail}</div>
-                            <div className="mt-auto flex justify-end items-end pt-2">
-                              <span className="text-xs skeuo-info-chip rounded-md px-2 py-0.5 text-white/80">
-                                {p.level}
-                              </span>
-                            </div>
-                            
-                          </div>
-                        ) : <div key={p.level} className="hidden sm:block text-sm text-white/85 h-full border-white/10 rounded-lg p-3 border border-dotted">
-                         
-                          </div> /* if no level, this is a dummy block to fill space, so render nothing */))}
-                      </div>
+                      <ClassLevelGroup
+                        classes={s.parallel}
+                        columnsClassName={
+                          s.parallel.length === 2
+                            ? "sm:grid-cols-2"
+                            : s.parallel.length === 3
+                            ? "sm:grid-cols-2 lg:grid-cols-3"
+                            : ""
+                        }
+                      />
                     ) : (
                       <div className="text-sm text-white/85 mt-1">{s.detail}</div>
                     )}
