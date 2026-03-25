@@ -200,9 +200,9 @@ export default function Home() {
             <div className="skeuo-card rounded-3xl p-6">
               <div className="flex flex-wrap items-start justify-between gap-3">
               <div className="min-w-0 flex-1">
-                  <div className="text-2xl font-bold">Other classes</div>
+                  <div className="text-2xl font-bold">Other classes & events</div>
                   <p className="mt-2 text-white/85">
-                    Extra sessions we run around the city. Click through for full details.
+                    Other classes and events around the city. Click through for full details.
                   </p>
                 </div>
               </div>

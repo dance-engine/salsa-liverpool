@@ -90,8 +90,29 @@ export const otherClasses: OtherClassLink[] = [
     when: "Thursdays (term time)",
     where: "Liverpool Guild of Students",
     href: "https://www.liverpoolguild.org/groups/society/7329/",
-    badge: "",
+    badge: "Class",
   },
+  {
+    title: "Merseyside Latin Festival",
+    when: "4th - 6th December 2026",
+    where: "Adelphi Hotel, Liverpool",
+    href: "https://www.merseysidelatinfestival.co.uk/",
+    badge: "Event",
+  },  
+  {
+    title: "Power of Woman",
+    when: "18th April 2026",
+    where: "Arts Bar Hope Street, Liverpool",
+    href: "https://powerofwomansbk.co.uk/",
+    badge: "Event",
+  },
+  {
+    title: "Cuban y Dominican All-Dayer",
+    when: "13th June 2026",
+    where: "Arts Bar Hope Street, Liverpool",
+    href: "https://www.cubanydominican.com/",
+    badge: "Event",
+  }  
 ];
 
 export const sundayArtsBar: ClassInfo = {
