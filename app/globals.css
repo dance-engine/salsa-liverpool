@@ -7,21 +7,25 @@ body {
 }
 
 :root {
-  --background: #293a5f;
-  --foreground: #fffefb;
-  --button-foreground: #fffdf9;
+  --background: oklch(16.496% 0.05381 259.91);
+  --foreground: oklch(99.8% 0.0008 105);
+  --button-foreground: oklch(99.7% 0.0013 90);
 
   /* skeuo-ish surfaces */
   --card: rgba(255, 255, 255, 0.14);
   --card-strong: rgba(255, 255, 255, 0.2);
   --stroke: rgba(255, 255, 255, 0.22);
 
-  --salsa-red: #ff0202;
-  --salsa-orange: #ff5a5a;
-  --salsa-yellow: #ffc800;
-  --salsa-purple: #5a63d8;
-  --salsa-blue: #000ea8;
-  --salsa-cyan: #2ea6d6;
+  --salsa-red-high: oklch(61.524% 0.23068 27.412);
+  --salsa-red: oklch(58.27% 0.23912 29.223);
+  --salsa-red-low: oklch(40.818% 0.16751 29.223);
+  --salsa-orange: oklch(64% 0.158 32);
+  --salsa-yellow: oklch(77% 0.190 104);
+  --salsa-purple: oklch(55% 0.190 270);
+  --salsa-blue: oklch(32% 0.185 262);
+  --salsa-blue-trans: oklch(32% 0.185 262 / 0.64);
+  
+  --salsa-cyan: oklch(66% 0.125 210);
 }
 
 @theme inline {
@@ -33,23 +37,23 @@ body {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #243454;
-    --foreground: #fffdf8;
+    --background: oklch(9.6% 0.018 255);
+    --foreground: oklch(99.7% 0.0012 100);
   }
 }
 
 @theme {
-  --instagram-yellow: #ffd76a;
-  --instagram-orange: #ff0202;
-  --instagram-red: #ff6464;
-  --instagram-purple: #000ea8;
+  --instagram-yellow: oklch(81% 0.140 115);
+  --instagram-orange: oklch(59% 0.238 13);
+  --instagram-red: oklch(65% 0.165 18);
+  --instagram-purple: oklch(32% 0.185 262);
 }
 
 body {
-  background: radial-gradient(1100px 620px at 18% 0%, rgba(255, 2, 2, 0.18), transparent 62%),
+  background: radial-gradient(1100px 620px at 18% 0%, rgba(255, 2, 2, 0.18), transparent 72%),
               radial-gradient(1000px 560px at 88% 8%, rgba(0, 14, 168, 0.24), transparent 58%),
               radial-gradient(920px 520px at 58% 92%, rgba(46, 166, 214, 0.14), transparent 58%),
-              linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 200, 0, 0.015) 24%, transparent 50%),
+              linear-gradient(180deg, rgba(255, 255, 255, 0.04) 0%, rgba(255, 200, 0, 0.015) 24%, transparent 100%),
               var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
@@ -63,6 +67,8 @@ body {
     radial-gradient(circle at bottom right, rgba(0,14,168,0.12), transparent 54%),
     var(--card);
   border: 1px solid var(--stroke);
+  /* border: 1px solid hotpink; */
+
   box-shadow: 0 14px 36px rgba(8, 16, 46, 0.28);
   backdrop-filter: blur(10px);
 }
@@ -70,8 +76,8 @@ body {
 .skeuo-card-strong {
   background:
     /* linear-gradient(180deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1)), */
-    radial-gradient(circle at top left, rgba(255,2,2,0.12), transparent 12%),
-    radial-gradient(circle at top right, rgba(0,14,168,0.16), transparent 16%),
+    radial-gradient(circle at top left, rgba(255,2,2,0.08), transparent 12%),
+    radial-gradient(circle at top right, rgba(0,14,168,0.04), transparent 16%),
     radial-gradient(circle at bottom center, rgba(46,166,214,0.1), transparent 10%),
     var(--card-strong);
   border: 1px solid var(--stroke);
@@ -90,15 +96,20 @@ body {
 
 .skeuo-chip {
   background:
-    linear-gradient(180deg, rgba(255,255,255,0.16), rgba(255,255,255,0.09)),
-    linear-gradient(120deg, rgba(255,2,2,0.1), rgba(0,14,168,0.1));
-  border: 1px solid rgba(255,255,255,0.18);
+    linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.09)),
+    linear-gradient(120deg, rgba(255,2,2,0.04), rgba(0,14,168,0.1));
+  border: 1px solid rgba(255,255,255,0.38);
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.14);
+}
+.skeuo-info-chip {
+  color: var(--salsa-blue);
+  background-color: white;
+  font-weight: bold;
 }
 
 .skeuo-chip-nested {
   margin-top: 1.25rem;            /* mt-5 */
-  border-radius: 1.5rem;          /* rounded-3xl */
+  border-radius: 0.8rem;          /* rounded-3xl */
   border: 1px solid rgba(255, 255, 255, 0.1); /* border-white/10 */
   background-color: rgba(255, 255, 255, 0.1); /* bg-white/10 */
   padding: 1rem;   
@@ -111,7 +122,11 @@ body {
 }
 
 .salsa-button {
-  background: linear-gradient(135deg, #ff5b5b 0%, #ff0202 42%, #000ea8 100%);
+  background: 
+    radial-gradient(circle at 10% 10%, 
+    var(--salsa-red) 0%, 
+    var(--salsa-red-low) 32%
+  );
   color: var(--button-foreground);
   box-shadow:
     0 12px 28px rgba(96, 16, 52, 0.28),
@@ -119,8 +134,14 @@ body {
 }
 
 .salsa-button:hover {
-  background: linear-gradient(135deg, #ff7474 0%, #ff2020 42%, #1625c0 100%);
+  background: 
+    radial-gradient(circle at 10% 10%, 
+    var(--salsa-red-high) 0%, 
+    var(--salsa-red) 32%
+  );
 }
+
+
 
 .salsa-header {
   background:

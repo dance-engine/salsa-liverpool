@@ -4,6 +4,7 @@ import Link from "next/link";
 import type { KeyboardEvent as ReactKeyboardEvent } from "react";
 import { useEffect, useId, useRef, useState } from "react";
 import { MdClose, MdMenu } from "react-icons/md";
+import { FilledButtonLink, OutlinedButtonLink } from "./ButtonLink";
 
 type NavLink = {
   href: string;
@@ -145,24 +146,24 @@ export default function MobileNav({
             className="skeuo-card-strong rounded-3xl p-4"
           >
             <div className="flex flex-col gap-3">
-              <Link
+              <FilledButtonLink
                 ref={firstLinkRef}
                 href={primaryHref}
                 onClick={closeMenu}
-                className="salsa-button rounded-2xl px-4 py-3 text-center text-sm font-semibold"
+                className="px-4 py-3 text-center text-sm"
               >
                 See Sunday Salsa
-              </Link>
+              </FilledButtonLink>
 
-              <Link
+              <OutlinedButtonLink
                 href={instagramHref}
                 target="_blank"
                 rel="noreferrer"
                 onClick={closeMenu}
-                className="skeuo-chip rounded-2xl px-4 py-3 text-center text-sm font-semibold text-white/90"
+                className="px-4 py-3 text-center text-sm"
               >
                 Instagram
-              </Link>
+              </OutlinedButtonLink>
 
               <div className="h-px bg-white/10" />
 

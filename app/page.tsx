@@ -3,7 +3,20 @@ import Link from "next/link";
 import { FaFacebookSquare, FaInstagramSquare } from "react-icons/fa";
 import { MdLocationOn, MdSchedule, MdPeople, MdBolt } from "react-icons/md";
 import HeroMapModal from "./HeroMapModal";
+import { FilledButtonLink, OutlinedButtonLink } from "./ButtonLink";
 import MobileNav from "./MobileNav";
+import {
+  directionsHref,
+  founder,
+  galleryImages,
+  instagramHref,
+  navLinks,
+  otherClasses,
+  quickFacts,
+  sundayArtsBar,
+  team,
+  vibePoints,
+} from "./Data";
 
 // type ClassInfo = {
 //   title: string;
@@ -17,168 +30,13 @@ import MobileNav from "./MobileNav";
 //   lng: number;
 // };
 
-type ParallelClass = {
-  level: string;
-  label: string;
-  detail: string;
-};
 
-type TimeBlock = {
-  time: string;
-  label: string;
-  detail?: string;
-  parallel?: ParallelClass[]; // if present => classes happening simultaneously
-};
-
-type ClassInfo = {
-  title: string;
-  venue: string;
-  address: string;
-  day: string;
-  time: string;
-  structure: TimeBlock[];
-  notes: string[];
-  lat: number;
-  lng: number;
-};
-
-type TeamMember = {
-  name: string;
-  role: string;
-  bio: string;
-  img: string; // /public path
-};
-
-type OtherClassLink = {
-  title: string;
-  when: string;
-  where: string;
-  href: string; // external or internal
-  badge?: string;
-};
-
-const otherClasses: OtherClassLink[] = [
-  {
-    title: "Salsa Society • University Class",
-    when: "Thursdays (term time)",
-    where: "Liverpool Guild of Students",
-    href: "https://www.liverpoolguild.org/groups/society/7329/",
-    badge: "Uni",
-  },
-];
-
-const instagramHref = "https://instagram.com/salsaliverpool";
-const directionsHref =
-  "https://www.google.com/maps/dir//Arts+Bar,+22+Hope+St,+Liverpool+L1+9BY/@53.4028573,-2.9721175,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x487b216e6f3f3f3f:0x8e8e8e8e8e8e8e8e!2m2!1d-2.9699284!2d53.4028573";
-const navLinks = [
-  { href: "#classes", label: "Classes" },
-  { href: "#style", label: "Style" },
-  { href: "#vibe", label: "Vibe" },
-  { href: "#team", label: "Team" },
-  { href: "#history", label: "History" },
-];
-
-const sundayArtsBar: ClassInfo = {
-  title: "Sunday Salsa @ Arts Bar",
-  venue: "Arts Bar Hope Street",
-  address: "22 Hope St, Liverpool L1 9BY",
-  day: "Every Sunday",
-  time: "Sign-in from 7:00pm • Classes start shortly after",
-  structure: [
-    { time: "7:00pm", label: "Arrive + sign in", detail: "Get settled, say hi, warm up." },
-    {
-      time: "7:30pm",
-      label: "Classes (running at the same time)",
-      parallel: [
-        { level: "Level I", label: "Fundamentals", detail: "Fundamental steps + confidence-building." },
-        { level: "Level II", label: "Beginners", detail: "Core moves, timing, clean technique." },
-        { level: "Level III", label: "Improvers", detail: "More flow + sharper transitions." },
-      ],
-    },
-    {
-      time: "8:30pm",
-      label: "Classes (running at the same time)",
-      parallel: [
-        { level: "Level IV", label: "Improvers+", detail: "Cuban partnerwork + rueda vocabulary." },
-        { level: "Level V", label: "Intermediate", detail: "Advanced moves, musicality, spice." },
-      ],
-    },    
-    { time: "After", label: "Social + practice", detail: "Music stays on so you can practise and vibe." },
-  ],
-  notes: [
-    "No partner needed — we rotate in the circle.",
-    "Friendly environment for first-timers (we explain everything).",
-    "Bring comfy shoes and a bit of water.",
-  ],
-  lat: 53.402857320356524,
-  lng: -2.969928364417614,
-};
-
-const team: TeamMember[] = [
-  {
-    name: "Angel",
-    role: "Teacher",
-    bio: "A charismatic Cuban Salsa and Rueda specialist leading The Salsa Liverpool team and helping run the Merseyside Latin Festival. A regular at UK congresses and Glasto Latino, he brings vibrant energy, Cuban/Irish heritage, and a passion for Cuban culture to every class.",
-    img: "/team/angel.jpg",
-  },
-  {
-    name: "Libby",
-    role: "Teacher",
-    bio: "Libby is a long-time Salsa Liverpool dancer and teacher who recently launched Liverpool’s all-female performance team. She brings passion, good vibes, and no-pressure fun to her energetic salsa classes.",
-    img: "/team/libby.jpg",
-  },
-  {
-    name: "Adam",
-    role: "Teacher",
-    bio: "Adam has been dancing since the early 2000s and teaching with the Salsa Liverpool team for the past eight years, bringing warmth, humour, and musicality to every class. From beginners to performance teams, he loves helping dancers grow in confidence while keeping the focus on fun, connection, and great vibes on the dance floor.",
-    img: "/team/adam.jpg",
-  },
-  {
-    name: "Nicola",
-    role: "Teacher",
-    bio: " ",
-    img: "/team/nicola.jpg",
-  },
-  {
-    name: "Connor",
-    role: "Teacher",
-    bio: "Connor has been dancing since 2017 with the Salsa Liverpool team, where he learned under Karen and grew into a teacher known for clear explanations and a chaotic-fun class style that keeps everyone smiling. After taking his Salsa and Rueda teaching to Paris, he’s now back in Liverpool sharing the same energy, confidence-building approach, and great vibes on the dance floor.",
-    img: "/team/connor.jpg",
-  },
-  {
-    name: "Alex",
-    role: "Teacher",
-    bio: " ",
-    img: "/team/alex.jpg",
-  },
-  {
-    name: "The Salsa Liverpool Team",
-    role: "Community + guest teachers",
-    bio: "We’ve got a rotating crew — different styles, same vibe: supportive, musical, and fun.",
-    img: "/team/group.jpg",
-  },
-//  {
-//    name: "Karen",
-//    role: "Founder",
-//    bio: "Built Salsa Liverpool over many years of teaching and community-building. Still a huge part of the story.",
-//    img: "/team/karen.jpg",
-//  },
-];
-
-const vibePoints = [
-  { icon: <MdPeople className="w-5 h-5" />, title: "Come solo", text: "Most people do. Rueda rotates partners — you’re never left out." },
-  { icon: <MdBolt className="w-5 h-5" />, title: "Low pressure", text: "We want you relaxed. Mistakes are normal — we laugh and keep moving." },
-  { icon: <MdSchedule className="w-5 h-5" />, title: "Clear structure", text: "You’ll always know what’s happening, when, and what level to join." },
-  { icon: <MdLocationOn className="w-5 h-5" />, title: "Central venue", text: "Hope Street — easy to reach and a great night out after class." },
-];
-
-const founder = {
-  name: "Karen",
-  role: "Founder • Salsa Liverpool",
-  bio:
-    "Karen founded Salsa Liverpool and spent years building the community, teaching generations of dancers, and creating the welcoming culture we’re proud of today.",
-  img: "/team/karen.jpg",
-};
+const vibeIcons = {
+  people: <MdPeople className="w-5 h-5" />,
+  bolt: <MdBolt className="w-5 h-5" />,
+  schedule: <MdSchedule className="w-5 h-5" />,
+  location: <MdLocationOn className="w-5 h-5" />,
+} as const;
 
 export default function Home() {
   return (
@@ -203,18 +61,18 @@ export default function Home() {
           </nav>
 
           <div className="hidden items-center gap-3 sm:flex">
-            <Link href={instagramHref} className="skeuo-chip rounded-full px-3 py-2 text-sm hover:bg-white/15">
+            <OutlinedButtonLink href={instagramHref} className="rounded-full px-3 py-2 text-sm">
               Instagram
-            </Link>
-            <Link href="#classes" className="salsa-button rounded-full px-4 py-2 text-sm font-semibold">
+            </OutlinedButtonLink>
+            <FilledButtonLink href="#classes" className="rounded-full px-4 py-2 text-sm">
               Sunday Salsa
-            </Link>
+            </FilledButtonLink>
           </div>
 
           <div className="flex items-center gap-2 sm:hidden">
-            <Link href="#classes" className="salsa-button rounded-full px-4 py-2 text-sm font-semibold">
+            <FilledButtonLink href="#classes" className="rounded-full px-4 py-2 text-sm">
               Sunday Salsa
-            </Link>
+            </FilledButtonLink>
             <MobileNav
               links={navLinks}
               instagramHref={instagramHref}
@@ -231,7 +89,7 @@ export default function Home() {
             
             <div className="inline-flex items-center gap-2 skeuo-chip rounded-full px-3 py-1 text-sm text-white/85">
               <span className="inline-block h-2 w-2 rounded-full bg-[var(--salsa-red)]" />
-              Liverpool’s Cuban Salsa community
+              Liverpool&apos;s Cuban Salsa community
             </div>
 
             <h1 className="mt-4 text-4xl sm:text-5xl font-black tracking-tight">
@@ -244,19 +102,14 @@ export default function Home() {
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
-              <a href="#classes" className="salsa-button rounded-2xl px-5 py-3 font-semibold">
+              <FilledButtonLink href="#classes" className="px-5 py-3">
                 See class times & location
-              </a>
+              </FilledButtonLink>
             </div>
 
             {/* Quick facts */}
             <div className="mt-7 grid grid-cols-2 gap-3 sm:grid-cols-4">
-              {[
-                { label: "No partner needed", sub: "We rotate" },
-                { label: "All levels", sub: "Beginners welcome" },
-                { label: "Every Sunday", sub: "Arts Bar" },
-                { label: "After-class social", sub: "Practice + music" },
-              ].map((x) => (
+              {quickFacts.map((x) => (
                 <div key={x.label} className="skeuo-chip rounded-2xl p-3">
                   <div className="text-sm font-semibold">{x.label}</div>
                   <div className="text-xs text-white/80 mt-1">{x.sub}</div>
@@ -271,8 +124,8 @@ export default function Home() {
               <div>
                 <div className="text-sm text-white/80">Next up</div>
                 <div className="text-2xl font-bold mt-1">{sundayArtsBar.title}</div>
-                <div className="text-white/80 mt-2">{sundayArtsBar.day} • {sundayArtsBar.time}</div>
-                <div className="text-white/80 mt-1">{sundayArtsBar.venue} — {sundayArtsBar.address}</div>
+                <div className="text-white/80 mt-2">{sundayArtsBar.day} - {sundayArtsBar.time}</div>
+                <div className="text-white/80 mt-1">{sundayArtsBar.venue} - {sundayArtsBar.address}</div>
               </div>
             </div>
 
@@ -302,12 +155,12 @@ export default function Home() {
               <div className="flex flex-wrap items-start justify-between gap-3">
                 <div className="min-w-0">
                   <div className="text-2xl font-bold">{sundayArtsBar.title}</div>
-                  <div className="text-white/80 mt-1">{sundayArtsBar.day}</div>
-                  <div className="text-white/80">{sundayArtsBar.venue}</div>
+                  <div className="text-white/80 mt-1 font-bold">{sundayArtsBar.day}</div>
+                  <div className="text-white/80 text-sm">{sundayArtsBar.venue}</div>
                 </div>
-                <div className="skeuo-chip rounded-2xl px-4 py-2 text-sm font-semibold flex-shrink-0">
+                {/* <div className="skeuo-chip rounded-2xl px-4 py-2 text-sm font-semibold flex-shrink-0">
                   Sunday
-                </div>
+                </div> */}
               </div>
 
               <div className="mt-5 space-y-3">
@@ -332,15 +185,20 @@ export default function Home() {
                         {s.parallel.map((p) => (
                           <div
                             key={p.level}
-                            className="rounded-2xl border border-white/10 bg-white/10 p-4"
+                            className="rounded-2xl border flex flex-col h-full border-white/10 bg-white/10 p-3"
                           >
+                            
                             <div className="flex items-center justify-between gap-3">
                               <div className="font-semibold">{p.label}</div>
                             </div>
-                            <div className="text-xs skeuo-chip rounded-full px-2 py-1 text-white/80 inline-block">
-                              {p.level}
-                            </div>
+                            
                             <div className="text-sm text-white/85 mt-2">{p.detail}</div>
+                            <div className="flex items-end mt-2">
+                              <span className="text-xs  skeuo-info-chip rounded-md px-2 py-0.5 text-white/80">
+                                {p.level}
+                              </span>
+                            </div>
+                            
                           </div>
                         ))}
                       </div>
@@ -384,14 +242,14 @@ export default function Home() {
                         <div className="text-sm text-white/80">{c.where}</div>
                       </div>
 
-                      <Link
+                      <FilledButtonLink
                         href={c.href}
                         target="_blank"
                         rel="noreferrer"
-                        className="salsa-button flex-shrink-0 rounded-2xl px-4 py-2 text-sm font-semibold"
+                        className="flex-shrink-0 px-4 py-2 text-sm"
                       >
                         Details
-                      </Link>
+                      </FilledButtonLink>
                     </div>
                   </div>
                 ))}
@@ -403,14 +261,14 @@ export default function Home() {
                     Follow Instagram for the latest classes, socials, and workshops.
                   </div>
                   <div className="mt-3 flex gap-3 flex-wrap">
-                    <Link
+                    <FilledButtonLink
                       href={instagramHref}
-                      className="salsa-button rounded-2xl px-4 py-2 font-semibold"
+                      className="px-4 py-2"
                       target="_blank"
                       rel="noreferrer"
                     >
                       Instagram
-                    </Link>
+                    </FilledButtonLink>
                   </div>
                 </div>
               </div>
@@ -426,7 +284,7 @@ export default function Home() {
               <h3 className="text-xl font-bold">Cuban Salsa & Rueda de Casino</h3>
               <p className="mt-3 text-white/85 leading-relaxed">
                 Cuban salsa is social, rhythmic, and playful. <strong>Rueda</strong> is salsa danced in a circle,
-                where a caller cues moves and everyone swaps partners — it’s the easiest way to meet people and
+                where a caller cues moves and everyone swaps partners — it&apos;s the easiest way to meet people and
                 learn fast without needing to bring someone with you.
               </p>
               <p className="mt-3 text-white/85 leading-relaxed">
@@ -450,13 +308,15 @@ export default function Home() {
         <section id="vibe" className="mt-14">
           <h2 className="text-3xl font-black">The vibe</h2>
           <p className="mt-2 text-white/85 max-w-3xl">
-            If you’re nervous: totally normal. These are designed to feel friendly, organised, and relaxed.
+            If you&apos;re nervous: totally normal. These are designed to feel friendly, organised, and relaxed.
           </p>
 
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {vibePoints.map((v) => (
               <div key={v.title} className="skeuo-card rounded-3xl p-5">
-                <div className="skeuo-chip w-fit rounded-2xl p-2">{v.icon}</div>
+                <div className={`skeuo-chip w-fit rounded-2xl p-2`} style={{ backgroundColor: v.colour }}>
+                  {vibeIcons[v.icon]}
+                </div>
                 <div className="mt-3 font-bold">{v.title}</div>
                 <div className="mt-2 text-sm text-white/85">{v.text}</div>
               </div>
@@ -588,14 +448,14 @@ export default function Home() {
                 <div className="skeuo-chip-nested rounded-2xl p-5">
                   <div className="font-semibold text-white">A new era</div>
                   <p className="mt-2 text-sm text-white/85 leading-relaxed">
-                    We’re building on Karen’s foundation — keeping the warmth and community — while making the experience
+                    We&apos;re building on Karen&apos;s foundation — keeping the warmth and community — while making the experience
                     clearer and more modern: better class structure, clearer levels, and an easy way for new people to join.
                   </p>
                 </div>
 
                 <p>
-                  Whether you’ve been around for years or you’re thinking of trying your first class, you’re part of the same story:
-                  a Liverpool salsa community that’s welcoming, social, and properly good fun.
+                  Whether you&apos;ve been around for years or you&apos;re thinking of trying your first class, you&apos;re part of the same story:
+                  a Liverpool salsa community that&apos;s welcoming, social, and properly good fun.
                 </p>
               </div>
             </div>
@@ -610,7 +470,7 @@ export default function Home() {
           </p>
 
           <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {["/gallery/1.jpg", "/gallery/2.jpg", "/gallery/3.jpg"].map((src) => (
+            {galleryImages.map((src) => (
               <div key={src} className="skeuo-card rounded-3xl overflow-hidden">
                 <div className="relative h-56 w-full bg-white/5">
                   <Image src={src} alt="Salsa Liverpool gallery" fill className="object-cover" />
@@ -627,14 +487,14 @@ export default function Home() {
           </div>
           <div className="flex gap-4 items-center">
             <Link href="https://fb.me/salsaliverpool" className="flex items-center gap-2">
-              <FaFacebookSquare className="text-[#1877F2] w-6 h-6" /> <span className="text-sm">Facebook</span>
+              <FaFacebookSquare className="text-[oklch(60%_0.280_260)] w-6 h-6" /> <span className="text-sm">Facebook</span>
             </Link>
             <Link href={instagramHref} className="flex items-center gap-2">
-              <FaInstagramSquare className="text-[#c92bb7] w-6 h-6" /> <span className="text-sm">@salsaliverpool</span>
+              <FaInstagramSquare className="text-[oklch(54%_0.320_324)] w-6 h-6" /> <span className="text-sm">@salsaliverpool</span>
             </Link>
-            <Link href="/feedback" className="skeuo-chip rounded-full px-3 py-2 text-sm">
+            <OutlinedButtonLink href="/feedback" className="rounded-full px-3 py-2 text-sm">
               Feedback
-            </Link>
+            </OutlinedButtonLink>
           </div>
         </footer>
       </main>

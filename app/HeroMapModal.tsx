@@ -3,7 +3,7 @@
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import React, { useEffect, useId, useRef, useState } from "react";
-import { MdClose, MdLocationOn, MdMap } from "react-icons/md";
+import { MdClose, MdLocationOn } from "react-icons/md";
 
 const LazyMap = dynamic(() => import("./MapClient"), {
   ssr: false,
@@ -156,7 +156,7 @@ export default function HeroMapModal({
 
   return (
     <>
-      <div className="mt-5 rounded-3xl border border-white/10 bg-white/10 p-4 sm:p-5">
+      <div className="skeuo-chip-nested mt-5 rounded-3xl border border-white/10 bg-white/10 p-4 sm:p-5">
         <div className="flex items-start gap-3">
           <div className="skeuo-chip mt-0.5 rounded-2xl p-2">
             <MdLocationOn className="h-5 w-5" />
@@ -195,7 +195,7 @@ export default function HeroMapModal({
 
       {isOpen ? (
         <div
-          className="fixed inset-0 z-40 flex items-center justify-center bg-[#08102acc]/80 p-4"
+          className="fixed inset-0 z-40 flex items-center justify-center bg-[oklch(5%_0.020_255)]/80 p-4"
           onClick={() => setIsOpen(false)}
         >
           <div
@@ -222,7 +222,7 @@ export default function HeroMapModal({
                 {title}
               </div>
               <div className="mt-1 text-sm text-white/80">
-                {venue} • {address}
+                {venue} - {address}
               </div>
             </div>
 
