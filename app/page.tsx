@@ -172,7 +172,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Top bar */}
-      <header className="sticky top-0 z-20 border-b border-white/10 bg-black/30 backdrop-blur">
+      <header className="salsa-header sticky top-0 z-20 border-b border-white/10 backdrop-blur">
         <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
           <div className="flex items-center gap-3">
             <Image src="/salsa-liverpool-logo.svg" width={44} height={44} alt="Salsa Liverpool" />
@@ -194,7 +194,7 @@ export default function Home() {
             <Link href="https://instagram.com/salsaliverpool" className="skeuo-chip rounded-full px-3 py-2 text-sm hover:bg-white/15">
               Instagram
             </Link>
-            <Link href="#classes" className="rounded-full px-4 py-2 text-sm font-semibold text-black bg-white hover:bg-white/90">
+            <Link href="#classes" className="salsa-button rounded-full px-4 py-2 text-sm font-semibold">
               Sunday Salsa
             </Link>
           </div>
@@ -221,7 +221,7 @@ export default function Home() {
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3">
-              <a href="#classes" className="rounded-2xl px-5 py-3 font-semibold text-black bg-white hover:bg-white/90">
+              <a href="#classes" className="salsa-button rounded-2xl px-5 py-3 font-semibold">
                 See class times & location
               </a>
             </div>
@@ -305,7 +305,7 @@ export default function Home() {
                         {s.parallel.map((p) => (
                           <div
                             key={p.level}
-                            className="rounded-2xl border border-white/10 bg-white/5 p-4"
+                            className="rounded-2xl border border-white/10 bg-white/10 p-4"
                           >
                             <div className="flex items-center justify-between gap-3">
                               <div className="font-semibold">{p.label}</div>
@@ -361,7 +361,7 @@ export default function Home() {
                         href={c.href}
                         target="_blank"
                         rel="noreferrer"
-                        className="flex-shrink-0 rounded-2xl px-4 py-2 text-sm font-semibold text-black bg-white hover:bg-white/90"
+                        className="salsa-button flex-shrink-0 rounded-2xl px-4 py-2 text-sm font-semibold"
                       >
                         Details
                       </Link>
@@ -378,7 +378,7 @@ export default function Home() {
                   <div className="mt-3 flex gap-3 flex-wrap">
                     <Link
                       href="https://instagram.com/salsaliverpool"
-                      className="rounded-2xl px-4 py-2 font-semibold text-black bg-white hover:bg-white/90"
+                      className="salsa-button rounded-2xl px-4 py-2 font-semibold"
                       target="_blank"
                       rel="noreferrer"
                     >
