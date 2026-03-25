@@ -134,6 +134,12 @@ const team: TeamMember[] = [
     img: "/team/connor.jpg",
   },
   {
+    name: "Alex",
+    role: "Teacher",
+    bio: " ",
+    img: "/team/alex.jpg",
+  },
+  {
     name: "The Salsa Liverpool Team",
     role: "Community + guest teachers",
     bio: "We’ve got a rotating crew — different styles, same vibe: supportive, musical, and fun.",
