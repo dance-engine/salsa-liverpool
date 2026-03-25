@@ -2,7 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { FaFacebookSquare, FaInstagramSquare } from "react-icons/fa";
 import { MdLocationOn, MdSchedule, MdPeople, MdBolt } from "react-icons/md";
-import Map from "./MapClient";
+import HeroMapModal from "./HeroMapModal";
+import MobileNav from "./MobileNav";
 
 // type ClassInfo = {
 //   title: string;
@@ -64,6 +65,17 @@ const otherClasses: OtherClassLink[] = [
     href: "https://www.liverpoolguild.org/groups/society/7329/",
     badge: "Uni",
   },
+];
+
+const instagramHref = "https://instagram.com/salsaliverpool";
+const directionsHref =
+  "https://www.google.com/maps/dir//Arts+Bar,+22+Hope+St,+Liverpool+L1+9BY/@53.4028573,-2.9721175,17z/data=!4m8!4m7!1m0!1m5!1m1!1s0x487b216e6f3f3f3f:0x8e8e8e8e8e8e8e8e!2m2!1d-2.9699284!2d53.4028573";
+const navLinks = [
+  { href: "#classes", label: "Classes" },
+  { href: "#style", label: "Style" },
+  { href: "#vibe", label: "Vibe" },
+  { href: "#team", label: "Team" },
+  { href: "#history", label: "History" },
 ];
 
 const sundayArtsBar: ClassInfo = {
@@ -173,7 +185,7 @@ export default function Home() {
     <div className="min-h-screen">
       {/* Top bar */}
       <header className="salsa-header sticky top-0 z-20 border-b border-white/10 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
+        <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3">
           <div className="flex items-center gap-3">
             <Image src="/salsa-liverpool-logo.svg" width={44} height={44} alt="Salsa Liverpool" />
             <div className="leading-tight">
@@ -183,20 +195,31 @@ export default function Home() {
           </div>
 
           <nav className="hidden sm:flex items-center gap-4 text-sm text-white/90">
-            <a className="hover:text-white" href="#classes">Classes</a>
-            <a className="hover:text-white" href="#style">Style</a>
-            <a className="hover:text-white" href="#vibe">Vibe</a>
-            <a className="hover:text-white" href="#team">Team</a>
-            <a className="hover:text-white" href="#history">History</a>
+            {navLinks.map((link) => (
+              <a key={link.href} className="hover:text-white" href={link.href}>
+                {link.label}
+              </a>
+            ))}
           </nav>
 
-          <div className="flex items-center gap-3">
-            <Link href="https://instagram.com/salsaliverpool" className="skeuo-chip rounded-full px-3 py-2 text-sm hover:bg-white/15">
+          <div className="hidden items-center gap-3 sm:flex">
+            <Link href={instagramHref} className="skeuo-chip rounded-full px-3 py-2 text-sm hover:bg-white/15">
               Instagram
             </Link>
             <Link href="#classes" className="salsa-button rounded-full px-4 py-2 text-sm font-semibold">
               Sunday Salsa
             </Link>
+          </div>
+
+          <div className="flex items-center gap-2 sm:hidden">
+            <Link href="#classes" className="salsa-button rounded-full px-4 py-2 text-sm font-semibold">
+              Sunday Salsa
+            </Link>
+            <MobileNav
+              links={navLinks}
+              instagramHref={instagramHref}
+              primaryHref="#classes"
+            />
           </div>
         </div>
       </header>
@@ -254,10 +277,14 @@ export default function Home() {
             </div>
 
             <div className="mt-4">
-              <Map width={600} height={300} lat={sundayArtsBar.lat} lng={sundayArtsBar.lng} />
-              <div className="text-xs text-white/75 mt-2">
-                Tip: click the map marker to open directions.
-              </div>
+              <HeroMapModal
+                title={sundayArtsBar.title}
+                venue={sundayArtsBar.venue}
+                address={sundayArtsBar.address}
+                directionsHref={directionsHref}
+                lat={sundayArtsBar.lat}
+                lng={sundayArtsBar.lng}
+              />
             </div>
           </div>
         </section>
@@ -285,7 +312,7 @@ export default function Home() {
 
               <div className="mt-5 space-y-3">
                 {sundayArtsBar.structure.map((s) => (
-                  <div key={`${s.time}-${s.label}`} className="skeuo-chip rounded-2xl p-4">
+                  <div key={`${s.time}-${s.label}`} className="skeuo-chip-nested rounded-2xl p-4">
                     <div className="flex items-baseline justify-between gap-4">
                       <div className="font-semibold">{s.label}</div>
                       <div className="text-sm text-white/80">{s.time}</div>
@@ -342,7 +369,7 @@ export default function Home() {
 
               <div className="mt-5 space-y-3">
                 {otherClasses.map((c) => (
-                  <div key={c.title} className="skeuo-chip rounded-2xl p-4">
+                  <div key={c.title} className="skeuo-chip-nested rounded-2xl p-4">
                     <div className="flex items-start justify-between gap-4">
                       <div className="min-w-0">
                         <div className="flex items-center gap-2">
@@ -377,7 +404,7 @@ export default function Home() {
                   </div>
                   <div className="mt-3 flex gap-3 flex-wrap">
                     <Link
-                      href="https://instagram.com/salsaliverpool"
+                      href={instagramHref}
                       className="salsa-button rounded-2xl px-4 py-2 font-semibold"
                       target="_blank"
                       rel="noreferrer"
@@ -558,7 +585,7 @@ export default function Home() {
                   comfortable quickly, learning in a friendly atmosphere, and leaving with new friends (and a few new moves).
                 </p>
 
-                <div className="skeuo-chip rounded-2xl p-5">
+                <div className="skeuo-chip-nested rounded-2xl p-5">
                   <div className="font-semibold text-white">A new era</div>
                   <p className="mt-2 text-sm text-white/85 leading-relaxed">
                     We’re building on Karen’s foundation — keeping the warmth and community — while making the experience
@@ -602,7 +629,7 @@ export default function Home() {
             <Link href="https://fb.me/salsaliverpool" className="flex items-center gap-2">
               <FaFacebookSquare className="text-[#1877F2] w-6 h-6" /> <span className="text-sm">Facebook</span>
             </Link>
-            <Link href="https://instagram.com/salsaliverpool" className="flex items-center gap-2">
+            <Link href={instagramHref} className="flex items-center gap-2">
               <FaInstagramSquare className="text-[#c92bb7] w-6 h-6" /> <span className="text-sm">@salsaliverpool</span>
             </Link>
             <Link href="/feedback" className="skeuo-chip rounded-full px-3 py-2 text-sm">
