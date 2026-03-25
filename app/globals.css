@@ -62,10 +62,8 @@ body {
 /* Optional: tiny skeuo helpers */
 .skeuo-card {
   background:
-    linear-gradient(180deg, rgba(255,255,255,0.14), rgba(255,255,255,0.07)),
-    radial-gradient(circle at top left, rgba(255,2,2,0.1), transparent 56%),
-    radial-gradient(circle at bottom right, rgba(0,14,168,0.12), transparent 54%),
-    var(--card);
+    linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.09)),
+    linear-gradient(120deg, rgba(255,2,2,0.04), rgba(0,14,168,0.1));
   border: 1px solid var(--stroke);
   /* border: 1px solid hotpink; */
 
@@ -75,16 +73,15 @@ body {
 
 .skeuo-card-strong {
   background:
-    /* linear-gradient(180deg, rgba(255,255,255,0.2), rgba(255,255,255,0.1)), */
-    radial-gradient(circle at top left, rgba(255,2,2,0.08), transparent 12%),
-    radial-gradient(circle at top right, rgba(0,14,168,0.04), transparent 16%),
-    radial-gradient(circle at bottom center, rgba(46,166,214,0.1), transparent 10%),
-    var(--card-strong);
+    linear-gradient(180deg, rgba(255,255,255,0.08), rgba(255,255,255,0.09)),
+    linear-gradient(120deg, rgba(255,2,2,0.04), rgba(0,14,168,0.1));
   border: 1px solid var(--stroke);
   box-shadow:
     0 20px 52px rgba(8,16,46,0.32),
     inset 0 1px 0 rgba(255,255,255,0.14);
   backdrop-filter: blur(12px);
+    /* border: 1px solid hotpink; */
+
 }
 
 /* .skeuo-card,
@@ -103,7 +100,7 @@ body {
 }
 .skeuo-info-chip {
   color: var(--salsa-blue);
-  background-color: white;
+  background-color: oklch(100% 0.00011 271.152 / 0.792);
   font-weight: bold;
 }
 

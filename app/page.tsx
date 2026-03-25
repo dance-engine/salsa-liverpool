@@ -167,14 +167,14 @@ export default function Home() {
                 {sundayArtsBar.structure.map((s) => (
                   <div key={`${s.time}-${s.label}`} className="skeuo-chip-nested rounded-2xl p-4">
                     <div className="flex items-baseline justify-between gap-4">
+                      <div className="text-lg text-white/80">{s.time}</div>
                       <div className="font-semibold">{s.label}</div>
-                      <div className="text-sm text-white/80">{s.time}</div>
                     </div>
 
                     {/* If this is a parallel block, render “tracks” */}
                     {s.parallel ? (
                       <div
-                          className={`mt-3 grid gap-3 grid-cols-1 ${
+                          className={`mt-3 grid gap-4 grid-cols-1 ${
                             s.parallel.length === 2
                               ? "sm:grid-cols-2"
                               : s.parallel.length === 3
@@ -183,9 +183,10 @@ export default function Home() {
                           }`}
                         >
                         {s.parallel.map((p) => (
+                          p.level != "" ? (
                           <div
                             key={p.level}
-                            className="rounded-2xl border flex flex-col h-full border-white/10 bg-white/10 p-3"
+                            className="rounded-lg border flex flex-col h-full border-white/15  p-3"
                           >
                             
                             <div className="flex items-center justify-between gap-3">
@@ -193,14 +194,16 @@ export default function Home() {
                             </div>
                             
                             <div className="text-sm text-white/85 mt-2">{p.detail}</div>
-                            <div className="flex items-end mt-2">
-                              <span className="text-xs  skeuo-info-chip rounded-md px-2 py-0.5 text-white/80">
+                            <div className="mt-auto flex justify-end items-end pt-2">
+                              <span className="text-xs skeuo-info-chip rounded-md px-2 py-0.5 text-white/80">
                                 {p.level}
                               </span>
                             </div>
                             
                           </div>
-                        ))}
+                        ) : <div key={p.level} className="text-sm text-white/85 mt-2">
+                          No Class, Grab a drink or watch the other classes
+                          </div> /* if no level, this is a dummy block to fill space, so render nothing */))}
                       </div>
                     ) : (
                       <div className="text-sm text-white/85 mt-1">{s.detail}</div>
@@ -294,11 +297,11 @@ export default function Home() {
 
             <div className="skeuo-card rounded-3xl p-6">
               <h3 className="text-xl font-bold">Our aims</h3>
-              <ul className="mt-3 space-y-2 text-white/85">
-                <li>• Make salsa feel welcoming (especially for first-timers).</li>
-                <li>• Build strong fundamentals — timing, rhythm, clarity.</li>
-                <li>• Keep it fun, social, and community-led.</li>
-                <li>• Help you feel confident on a dancefloor in Liverpool and beyond.</li>
+              <ul className="mt-3 space-y-2 text-white/85 list-disc pl-5">
+                <li>Make salsa feel welcoming (especially for first-timers).</li>
+                <li>Build strong fundamentals — timing, rhythm, clarity.</li>
+                <li>Keep it fun, social, and community-led.</li>
+                <li>Help you feel confident on a dancefloor in Liverpool and beyond.</li>
               </ul>
             </div>
           </div>
@@ -350,7 +353,7 @@ export default function Home() {
                 [-webkit-overflow-scrolling:touch]
               "
             >
-              {team.map((m) => (
+              {[team[0],...team.slice(1,).sort(() => 0.5 - Math.random())].map((m) => (
                 <div
                   key={m.name}
                   className="

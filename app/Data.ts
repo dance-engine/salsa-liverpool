@@ -90,7 +90,7 @@ export const otherClasses: OtherClassLink[] = [
     when: "Thursdays (term time)",
     where: "Liverpool Guild of Students",
     href: "https://www.liverpoolguild.org/groups/society/7329/",
-    badge: "Uni",
+    badge: "",
   },
 ];
 
@@ -104,19 +104,20 @@ export const sundayArtsBar: ClassInfo = {
     { time: "7:00pm", label: "Arrive + sign in", detail: "Get settled, say hi, warm up." },
     {
       time: "7:30pm",
-      label: "Classes (running at the same time)",
+      label: "Classes (3 levels)",
       parallel: [
-        { level: "Level I", label: "Fundamentals", detail: "Fundamental steps + confidence-building." },
-        { level: "Level II", label: "Beginners", detail: "Core moves, timing, clean technique." },
-        { level: "Level III", label: "Improvers", detail: "More flow + sharper transitions." },
+        { level: "Level I", label: "Beginners", detail: "Fundamental steps + confidence-building." },
+        { level: "Level II", label: "Rueda 1", detail: "Core moves, timing, clean technique." },
+        { level: "Level III", label: "Rueda 3", detail: "More flow + sharper transitions." },
       ],
     },
     {
       time: "8:30pm",
-      label: "Classes (running at the same time)",
+      label: "Classes (2 levels)",
       parallel: [
-        { level: "Level IV", label: "Improvers+", detail: "Cuban partnerwork + rueda vocabulary." },
-        { level: "Level V", label: "Intermediate", detail: "Advanced moves, musicality, spice." },
+        { level: "", label: "", detail: "" },
+        { level: "Level IV", label: "Rueda 2", detail: "Cuban partnerwork + rueda vocabulary." },
+        { level: "Level V", label: "Partnerwork", detail: "Advanced moves, musicality, spice." },
       ],
     },
     { time: "After", label: "Social + practice", detail: "Music stays on so you can practise and vibe." },
@@ -141,6 +142,12 @@ export const founder: Founder = {
 export const galleryImages = ["/gallery/1.jpg", "/gallery/2.jpg", "/gallery/3.jpg"];
 
 export const team: TeamMember[] = [
+    {
+    name: "The Salsa Liverpool Team",
+    role: "Community + guest teachers",
+    bio: "We've got a rotating crew - different styles, same vibe: supportive, musical, and fun.",
+    img: "/team/group.jpg",
+  },
   {
     name: "Angel",
     role: "Teacher",
@@ -171,18 +178,12 @@ export const team: TeamMember[] = [
     bio: "Connor has been dancing since 2017 with the Salsa Liverpool team, where he learned under Karen and grew into a teacher known for clear explanations and a chaotic-fun class style that keeps everyone smiling. After taking his Salsa and Rueda teaching to Paris, he's now back in Liverpool sharing the same energy, confidence-building approach, and great vibes on the dance floor.",
     img: "/team/connor.jpg",
   },
-  {
-    name: "Alex",
-    role: "Teacher",
-    bio: " ",
-    img: "/team/alex.jpg",
-  },
-  {
-    name: "The Salsa Liverpool Team",
-    role: "Community + guest teachers",
-    bio: "We've got a rotating crew - different styles, same vibe: supportive, musical, and fun.",
-    img: "/team/group.jpg",
-  },
+  // {
+  //   name: "Alex",
+  //   role: "Teacher",
+  //   bio: " ",
+  //   img: "/team/alex.jpg",
+  // },
 ];
 
 export const vibePoints: VibePointData[] = [
@@ -190,24 +191,24 @@ export const vibePoints: VibePointData[] = [
     icon: "people",
     title: "Come Solo",
     text: "Most people do. Rueda rotates partners - you're never left out.",
-    colour: "var(--salsa-yellow)",
+    colour: "var(--salsa-red)",
   },
   {
     icon: "bolt",
     title: "Low pressure",
     text: "We want you relaxed. Mistakes are normal - we laugh and keep moving.",
-    colour: "var(--salsa-yellow)",
+    colour: "var(--salsa-red)",
   },
   {
     icon: "schedule",
     title: "Clear structure",
     text: "You'll always know what's happening, when, and what level to join.",
-    colour: "var(--salsa-yellow)",
+    colour: "var(--salsa-red)",
   },
   {
     icon: "location",
     title: "Central venue",
     text: "Hope Street - easy to reach and a great night out after class.",
-    colour: "var(--salsa-yellow)",
+    colour: "var(--salsa-red)",
   },
 ];
