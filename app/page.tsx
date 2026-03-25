@@ -4,7 +4,7 @@ import { FaFacebookSquare, FaInstagramSquare } from "react-icons/fa";
 import { MdLocationOn, MdSchedule, MdPeople, MdBolt } from "react-icons/md";
 import HeroMapModal from "./HeroMapModal";
 import { FilledButtonLink, OutlinedButtonLink } from "./ButtonLink";
-import MobileNav from "./MobileNav";
+import SiteHeader from "./SiteHeader";
 import TeamCarousel from "./TeamCarousel";
 import {
   directionsHref,
@@ -59,45 +59,7 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       {/* Top bar */}
-      <header className="salsa-header sticky top-0 z-20 border-b border-white/10 backdrop-blur">
-        <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3">
-          <div className="flex items-center gap-3">
-            <Image src="/salsa-liverpool-logo.svg" width={44} height={44} alt="Salsa Liverpool" />
-            <div className="leading-tight">
-              <div className="font-semibold">Salsa Liverpool</div>
-              <div className="text-sm text-white/80">Cuban Salsa • Rueda de Casino • Liverpool</div>
-            </div>
-          </div>
-
-          <nav className="hidden sm:flex items-center gap-4 text-sm text-white/90">
-            {navLinks.map((link) => (
-              <a key={link.href} className="hover:text-white" href={link.href}>
-                {link.label}
-              </a>
-            ))}
-          </nav>
-
-          <div className="hidden items-center gap-3 sm:flex">
-            <OutlinedButtonLink href={instagramHref} className="rounded-full px-3 py-2 text-sm">
-              Instagram
-            </OutlinedButtonLink>
-            <FilledButtonLink href="#classes" className="rounded-full px-4 py-2 text-sm">
-              Sunday Salsa
-            </FilledButtonLink>
-          </div>
-
-          <div className="flex items-center gap-2 sm:hidden">
-            <FilledButtonLink href="#classes" className="rounded-full px-4 py-2 text-sm">
-              Sunday Salsa
-            </FilledButtonLink>
-            <MobileNav
-              links={navLinks}
-              instagramHref={instagramHref}
-              primaryHref="#classes"
-            />
-          </div>
-        </div>
-      </header>
+      <SiteHeader navLinks={navLinks} instagramHref={instagramHref} />
 
       <main className="mx-auto max-w-6xl px-4 py-10 sm:py-14 salsa-bg">
         {/* Hero */}

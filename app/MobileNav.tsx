@@ -15,12 +15,14 @@ type MobileNavProps = {
   links: NavLink[];
   instagramHref: string;
   primaryHref: string;
+  primaryLabel: string;
 };
 
 export default function MobileNav({
   links,
   instagramHref,
   primaryHref,
+  primaryLabel,
 }: MobileNavProps) {
   const [isOpen, setIsOpen] = useState(false);
   const wasOpenRef = useRef(false);
@@ -68,7 +70,7 @@ export default function MobileNav({
     };
 
     const handleResize = () => {
-      if (window.innerWidth >= 640) {
+      if (window.innerWidth >= 1024) {
         setIsOpen(false);
       }
     };
@@ -122,7 +124,7 @@ export default function MobileNav({
   };
 
   return (
-    <div className="relative sm:hidden">
+    <div className="relative">
       <button
         ref={buttonRef}
         type="button"
@@ -143,7 +145,8 @@ export default function MobileNav({
             role="dialog"
             aria-label="Mobile navigation"
             onKeyDown={handlePanelKeyDown}
-            className="skeuo-card-strong rounded-3xl p-4"
+            className="skeuo-card rounded-3xl p-4"
+            style={{backgroundColor: "oklch(15% 0.05 255 / 0.98)"}}
           >
             <div className="flex flex-col gap-3">
               <FilledButtonLink
@@ -152,7 +155,7 @@ export default function MobileNav({
                 onClick={closeMenu}
                 className="px-4 py-3 text-center text-sm"
               >
-                See Sunday Salsa
+                {primaryLabel}
               </FilledButtonLink>
 
               <OutlinedButtonLink

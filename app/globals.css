@@ -142,7 +142,7 @@ body {
 
 .salsa-header {
   background:
-    linear-gradient(90deg, rgba(255,2,2,0.13), rgba(46,166,214,0.1) 44%, rgba(0,14,168,0.16)),
+    /* linear-gradient(90deg, rgba(255,2,2,0.13), rgba(46,166,214,0.1) 44%, rgba(0,14,168,0.16)), */
     rgba(16, 26, 56, 0.74);
 }
 
