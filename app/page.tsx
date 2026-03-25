@@ -207,7 +207,7 @@ export default function Home() {
           <div>
             
             <div className="inline-flex items-center gap-2 skeuo-chip rounded-full px-3 py-1 text-sm text-white/85">
-              <span className="inline-block h-2 w-2 rounded-full bg-[var(--instagram-orange)]" />
+              <span className="inline-block h-2 w-2 rounded-full bg-[var(--salsa-red)]" />
               Liverpool’s Cuban Salsa community
             </div>
 
