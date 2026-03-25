@@ -108,7 +108,7 @@ export const sundayArtsBar: ClassInfo = {
       parallel: [
         { level: "Level I", label: "Beginners", detail: "Fundamental steps + confidence-building." },
         { level: "Level II", label: "Rueda 1", detail: "Core moves, timing, clean technique." },
-        { level: "Level III", label: "Rueda 3", detail: "More flow + sharper transitions." },
+        { level: "Level IV", label: "Rueda 3", detail: "More flow + sharper transitions." },
       ],
     },
     {
@@ -116,7 +116,7 @@ export const sundayArtsBar: ClassInfo = {
       label: "Classes (2 levels)",
       parallel: [
         { level: "", label: "", detail: "" },
-        { level: "Level IV", label: "Rueda 2", detail: "Cuban partnerwork + rueda vocabulary." },
+        { level: "Level III", label: "Rueda 2", detail: "Cuban partnerwork + rueda vocabulary." },
         { level: "Level V", label: "Partnerwork", detail: "Advanced moves, musicality, spice." },
       ],
     },
@@ -151,7 +151,7 @@ export const team: TeamMember[] = [
   {
     name: "Angel",
     role: "Teacher",
-    bio: "A charismatic Cuban Salsa and Rueda specialist leading The Salsa Liverpool team and helping run the Merseyside Latin Festival. A regular at UK congresses and Glasto Latino, he brings vibrant energy, Cuban/Irish heritage, and a passion for Cuban culture to every class.",
+    bio: "A charismatic Cuban Salsa and Rueda specialist in the Salsa Liverpool team and helping run the Merseyside Latin Festival. A regular at UK congresses and Glasto Latino, he brings vibrant energy, Cuban/Irish heritage, and a passion for Cuban culture to every class.",
     img: "/team/angel.jpg",
   },
   {
@@ -169,7 +169,7 @@ export const team: TeamMember[] = [
   {
     name: "Nicola",
     role: "Teacher",
-    bio: " ",
+    bio: "Nicola has been dancing with the Salsa Liverpool team since 2017. She is known for her clear teaching style, infectious energy, and warm vibe. She creates a welcoming space where dancers of all levels can build confidence, connect with the music, and have a great time on the dance floor.",
     img: "/team/nicola.jpg",
   },
   {
