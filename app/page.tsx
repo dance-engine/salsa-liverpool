@@ -180,8 +180,8 @@ export default function Home() {
                             </div>
                             
                           </div>
-                        ) : <div key={p.level} className="text-sm text-white/85 mt-2">
-                          No Class, Grab a drink or watch the other classes
+                        ) : <div key={p.level} className="hidden sm:block text-sm text-white/85 h-full border-white/10 rounded-lg p-3 border border-dotted">
+                         
                           </div> /* if no level, this is a dummy block to fill space, so render nothing */))}
                       </div>
                     ) : (
