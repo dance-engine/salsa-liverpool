@@ -213,7 +213,7 @@ export const team: TeamMember[] = [
   {
     name: "Angel",
     role: "Teacher",
-    bio: "A charismatic Cuban Salsa and Rueda specialist in the Salsa Liverpool team and helping run the Merseyside Latin Festival. A regular at UK congresses and Glasto Latino, he brings vibrant energy, Cuban/Irish heritage, and a passion for Cuban culture to every class.",
+    bio: "Angel is a charismatic Cuban Salsa and Rueda specialist and helps run the Merseyside Latin Festival with Karen and the rest of the team. A regular at UK congresses and Glasto Latino, he brings vibrant energy, Cuban/Irish heritage, and a passion for Cuban culture to every class.",
     img: "/team/angel.jpg",
   },
   {
