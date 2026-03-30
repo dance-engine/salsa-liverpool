@@ -133,8 +133,7 @@ export const sundayArtsBar: ClassInfo = {
           label: "Beginners",
           detail: "Fundamental steps + confidence-building.",
           info: [
-            "Perfect if you're brand new or still building confidence with the basic step and timing.",
-            "You'll focus on simple foundations, getting comfortable with the timing, and feeling ready to join the next level when you have all the core ingredients.",
+            "",
           ],
         },
         {
@@ -142,8 +141,7 @@ export const sundayArtsBar: ClassInfo = {
           label: "Rueda 1",
           detail: "Core moves, timing, clean technique.",
           info: [
-            "Best for dancers who are comfortable with the basic step and ready to start following rueda calls in a group.",
-            "You'll build confidence with core vocabulary, timing, and clean partner changes without the pace feeling too intense.",
+            "",
           ],
         },
         {
@@ -151,8 +149,7 @@ export const sundayArtsBar: ClassInfo = {
           label: "Rueda 3",
           detail: "More flow + sharper transitions.",
           info: [
-            "Designed for dancers who are already confident in rueda and want more speed, variety, and smoother transitions between calls.",
-            "You'll work on cleaner reactions, stronger memory of vocabulary, and dancing with more flow under pressure.",
+            "",
           ],
         },
       ],
@@ -167,8 +164,7 @@ export const sundayArtsBar: ClassInfo = {
           label: "Rueda 2",
           detail: "Cuban partnerwork + rueda vocabulary.",
           info: [
-            "A step up from Rueda 1 for dancers who already know the basics and want to feel more confident with longer combinations.",
-            "Expect more vocabulary, quicker changes, and more emphasis on keeping the circle tidy and musical.",
+            "",
           ],
         },
         {
@@ -176,8 +172,7 @@ export const sundayArtsBar: ClassInfo = {
           label: "Partnerwork",
           detail: "Advanced moves, musicality, spice.",
           info: [
-            "For dancers with solid timing, lead-and-follow basics, and enough experience to focus on detail rather than just memorising moves.",
-            "The class leans into technique, musicality, and more challenging combinations while keeping the social feel of Cuban salsa.",
+            "",
           ],
         },
       ],
