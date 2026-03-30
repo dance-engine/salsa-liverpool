@@ -12,7 +12,6 @@ export default function ClassLevelGroup({
   classes,
   columnsClassName,
 }: ClassLevelGroupProps) {
-  const selectableClasses = classes.filter((item) => item.level !== "");
   const [selectedLevel, setSelectedLevel] = useState<string | null>(null);
 
   return (
@@ -29,25 +28,14 @@ export default function ClassLevelGroup({
 
         const isSelected = selectedLevel === item.level;
         const hasInfo = Boolean(item.info?.length);
-        const isOnlyChoice = selectableClasses.length <= 1;
+        const sharedClassName = `rounded-lg border border-white/15 p-3 text-left transition ${
+          isSelected
+            ? "col-span-full bg-white/6 border-white/30 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]"
+            : "flex h-full flex-col"
+        }`;
 
-        return (
-          <button
-            key={item.level}
-            type="button"
-            onClick={() =>
-              setSelectedLevel((current) =>
-                current === item.level ? null : item.level
-              )
-            }
-            className={`rounded-lg border border-white/15 p-3 text-left transition hover:border-white/30 hover:bg-white/5 hover:-translate-y-0.5 ${
-              isSelected
-                ? "col-span-full bg-white/6s border-white/30 shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]"
-                : "flex h-full flex-col"
-            }`}
-            aria-pressed={isSelected}
-            disabled={!hasInfo && isOnlyChoice}
-          >
+        const content = (
+          <>
             <div className="flex items-center justify-between gap-3">
               <div className="font-semibold">{item.label}</div>
             </div>
@@ -69,7 +57,27 @@ export default function ClassLevelGroup({
                 {item.level}
               </span>
             </div>
+          </>
+        );
+
+        return hasInfo ? (
+          <button
+            key={item.level}
+            type="button"
+            onClick={() =>
+              setSelectedLevel((current) =>
+                current === item.level ? null : item.level
+              )
+            }
+            className={`${sharedClassName} hover:-translate-y-0.5 hover:border-white/30 hover:bg-white/5`}
+            aria-pressed={isSelected}
+          >
+            {content}
           </button>
+        ) : (
+          <div key={item.level} className={sharedClassName}>
+            {content}
+          </div>
         );
       })}
     </div>
