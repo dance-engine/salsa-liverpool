@@ -101,11 +101,11 @@ export const otherClasses: OtherClassLink[] = [
     badge: "Event",
   },  
   {
-    title: "Power of Woman",
-    when: "18th April 2026",
-    where: "Arts Bar Hope Street, Liverpool",
-    href: "https://powerofwomansbk.co.uk/",
-    badge: "Event",
+    title: "The Liverpool SBK Collaboration",
+    when: "16th May 2026",
+    where: "The Studio Beyond, Liverpool",
+    href: "https://thecollaboration.danceengine.co.uk/3CRadENZGfxt3tI0iw3w03AEYX2",
+    badge: "Party",
   },
   {
     title: "Cuban y Dominican All-Dayer",
