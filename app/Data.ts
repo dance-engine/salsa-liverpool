@@ -87,13 +87,6 @@ export const quickFacts: QuickFact[] = [
 
 export const otherClasses: OtherClassLink[] = [
   {
-    title: "Salsa Society - University Class",
-    when: "Thursdays (term time)",
-    where: "Liverpool Guild of Students",
-    href: "https://www.liverpoolguild.org/groups/society/7329/",
-    badge: "Class",
-  },
-  {
     title: "Merseyside Latin Festival",
     when: "4th - 6th December 2026",
     where: "Adelphi Hotel, Liverpool",
@@ -101,19 +94,19 @@ export const otherClasses: OtherClassLink[] = [
     badge: "Event",
   },  
   {
-    title: "The Liverpool SBK Collaboration",
-    when: "16th May 2026",
-    where: "The Studio Beyond, Liverpool",
-    href: "https://thecollaboration.danceengine.co.uk/3CRadENZGfxt3tI0iw3w03AEYX2",
-    badge: "Party",
-  },
-  {
     title: "Cuban y Dominican All-Dayer",
     when: "13th June 2026",
     where: "Arts Bar Hope Street, Liverpool",
     href: "https://www.cubanydominican.com/",
     badge: "Event",
-  }  
+  },
+  {
+    title: "Salsa Society - University Class",
+    when: "Thursdays (term time)",
+    where: "Liverpool Guild of Students",
+    href: "https://www.liverpoolguild.org/groups/society/7329/",
+    badge: "Class",
+  }
 ];
 
 export const sundayArtsBar: ClassInfo = {
