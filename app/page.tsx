@@ -10,7 +10,7 @@ import TeamCarousel from "./TeamCarousel";
 import {
   directionsHref,
   founder,
-  galleryImages,
+  galleryMedia,
   instagramHref,
   navLinks,
   otherClasses,
@@ -38,6 +38,12 @@ const vibeIcons = {
   bolt: <MdBolt className="w-5 h-5" />,
   schedule: <MdSchedule className="w-5 h-5" />,
   location: <MdLocationOn className="w-5 h-5" />,
+} as const;
+
+const galleryAspectClasses = {
+  landscape: "aspect-[16/10] md:col-span-2",
+  portrait: "aspect-[4/5]",
+  square: "aspect-square",
 } as const;
 
 const orderedTeam = (() => {
@@ -370,16 +376,54 @@ export default function Home() {
 
         {/* Gallery */}
         <section className="mt-14">
-          <h2 className="text-3xl font-black">Gallery</h2>
-          <p className="mt-2 text-white/85 max-w-3xl">
-            A glimpse of the nights — classes, socials, and the people that make it what it is.
-          </p>
+          <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+            <div>
+              <h2 className="text-3xl font-black">Gallery</h2>
+              <p className="mt-2 text-white/85 max-w-3xl">
+                A glimpse of the nights — classes, socials, and the people that make it what it is.
+              </p>
+            </div>
 
-          <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {galleryImages.map((src) => (
-              <div key={src} className="skeuo-card rounded-3xl overflow-hidden">
-                <div className="relative h-56 w-full bg-white/5">
-                  <Image src={src} alt="Salsa Liverpool gallery" fill className="object-cover" />
+            <div className="skeuo-chip rounded-2xl px-4 py-2 text-sm text-white/80">
+              Supports photos, portrait shots, and short looping video
+            </div>
+          </div>
+
+          <div className="mt-6 grid auto-rows-fr gap-4 md:grid-cols-2 xl:grid-cols-3">
+            {galleryMedia.map((item) => (
+              <div
+                key={item.src}
+                className={`skeuo-card group overflow-hidden rounded-3xl ${galleryAspectClasses[item.aspect]}`}
+              >
+                <div className="relative h-full w-full bg-white/5">
+                  {item.kind === "video" ? (
+                    <>
+                      <video
+                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        preload="metadata"
+                        poster={item.poster}
+                        aria-label={item.alt}
+                      >
+                        <source src={item.src} type="video/mp4" />
+                      </video>
+
+                      <div className="pointer-events-none absolute left-3 top-3 skeuo-chip rounded-full px-3 py-1 text-xs font-semibold text-white/85">
+                        Motion
+                      </div>
+                    </>
+                  ) : (
+                    <Image
+                      src={item.src}
+                      alt={item.alt}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                    />
+                  )}
                 </div>
               </div>
             ))}

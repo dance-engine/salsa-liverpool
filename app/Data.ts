@@ -56,6 +56,18 @@ export type TeamMember = {
   img: string;
 };
 
+export type GalleryMediaKind = "image" | "video";
+
+export type GalleryMediaAspect = "landscape" | "portrait" | "square";
+
+export type GalleryMedia = {
+  kind: GalleryMediaKind;
+  src: string;
+  alt: string;
+  aspect: GalleryMediaAspect;
+  poster?: string;
+};
+
 export type VibePointIcon = "people" | "bolt" | "schedule" | "location";
 
 export type VibePointData = {
@@ -182,7 +194,40 @@ export const founder: Founder = {
   img: "/team/karen.jpg",
 };
 
-export const galleryImages = ["/gallery/1.jpg", "/gallery/2.jpg", "/gallery/3.jpg"];
+export const galleryMedia: GalleryMedia[] = [
+  {
+    kind: "image",
+    src: "/gallery/1.jpg",
+    alt: "Salsa Liverpool dancers during class",
+    aspect: "landscape",
+  },
+  {
+    kind: "image",
+    src: "/gallery/2.jpg",
+    alt: "Salsa Liverpool social dancing moment",
+    aspect: "landscape",
+  },
+  {
+    kind: "image",
+    src: "/gallery/3.jpg",
+    alt: "Salsa Liverpool class atmosphere",
+    aspect: "landscape",
+  },
+  {
+    kind: "video",
+    src: "/gallery/video_1.mp4",
+    alt: "Video of the classes",
+    aspect: "portrait",
+    poster: "/gallery/video_1_cover.png",
+  },
+  {
+    kind: "video",
+    src: "/gallery/video_2.mp4",
+    alt: "Video of the classes",
+    aspect: "portrait",
+    poster: "/gallery/video_2_cover.png",
+  },
+];
 
 export const team: TeamMember[] = [
     {
