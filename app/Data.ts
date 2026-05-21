@@ -128,14 +128,14 @@ export const sundayArtsBar: ClassInfo = {
           info: [],
         },
         {
-          level: "Level II",
-          label: "Rueda 1",
+          level: "Level III",
+          label: "Improvers",
           detail: "Core moves, timing, clean technique.",
           info: [],
         },
         {
-          level: "Level IV",
-          label: "Rueda 3",
+          level: "Level V",
+          label: "Intermediate",
           detail: "More flow + sharper transitions.",
           info: [],
         },
@@ -143,18 +143,21 @@ export const sundayArtsBar: ClassInfo = {
     },
     {
       time: "8:30pm",
-      label: "Classes (2 levels)",
+      label: "Classes (3 levels)",
       parallel: [
-        { level: "", label: "", detail: "" },
+        { level: "Level II", 
+          label: "Beginners+", 
+          detail: "Preparing for the rueda." 
+        },
         {
-          level: "Level III",
-          label: "Rueda 2",
+          level: "Level IV",
+          label: "Improvers+",
           detail: "Cuban partnerwork + rueda vocabulary.",
           info: [],
         },
         {
-          level: "Level V",
-          label: "Partnerwork",
+          level: "Level VI",
+          label: "Intermediate+",
           detail: "Advanced moves, musicality, spice.",
           info: [],
         },
