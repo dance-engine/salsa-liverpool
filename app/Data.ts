@@ -66,6 +66,8 @@ export type GalleryMedia = {
   alt: string;
   aspect: GalleryMediaAspect;
   poster?: string;
+  width?: number;
+  height?: number;
 };
 
 export type VibePointIcon = "people" | "bolt" | "schedule" | "location";
@@ -196,29 +198,27 @@ export const founder: Founder = {
 
 export const galleryMedia: GalleryMedia[] = [
   {
+    kind: "video",
+    src: "/gallery/video_3.mp4",
+    alt: "Video of the classes",
+    aspect: "landscape",
+    poster: "/gallery/video_3_cover.png",
+  },
+  {
     kind: "image",
     src: "/gallery/1.jpg",
     alt: "Salsa Liverpool dancers during class",
     aspect: "landscape",
+    width: 2048,
+    height: 1462,
   },
   {
     kind: "image",
     src: "/gallery/2.jpg",
     alt: "Salsa Liverpool social dancing moment",
     aspect: "landscape",
-  },
-  {
-    kind: "image",
-    src: "/gallery/3.jpg",
-    alt: "Salsa Liverpool class atmosphere",
-    aspect: "landscape",
-  },
-  {
-    kind: "video",
-    src: "/gallery/video_1.mp4",
-    alt: "Video of the classes",
-    aspect: "portrait",
-    poster: "/gallery/video_1_cover.png",
+    width: 640,
+    height: 480,
   },
   {
     kind: "video",
@@ -227,6 +227,22 @@ export const galleryMedia: GalleryMedia[] = [
     aspect: "portrait",
     poster: "/gallery/video_2_cover.png",
   },
+  {
+    kind: "image",
+    src: "/gallery/3.jpg",
+    alt: "Salsa Liverpool class atmosphere",
+    aspect: "landscape",
+    width: 640,
+    height: 480,
+  },
+  {
+    kind: "video",
+    src: "/gallery/video_1.mp4",
+    alt: "Video of the classes",
+    aspect: "portrait",
+    poster: "/gallery/video_1_cover.png",
+  },
+
 ];
 
 export const team: TeamMember[] = [

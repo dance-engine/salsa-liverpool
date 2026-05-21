@@ -3,6 +3,7 @@ import Link from "next/link";
 import { FaFacebookSquare, FaInstagramSquare } from "react-icons/fa";
 import { MdLocationOn, MdSchedule, MdPeople, MdBolt } from "react-icons/md";
 import ClassLevelGroup from "./ClassLevelGroup";
+import GalleryMasonry from "./GalleryMasonry";
 import HeroMapModal from "./HeroMapModal";
 import { FilledButtonLink, OutlinedButtonLink } from "./ButtonLink";
 import SiteHeader from "./SiteHeader";
@@ -39,13 +40,6 @@ const vibeIcons = {
   schedule: <MdSchedule className="w-5 h-5" />,
   location: <MdLocationOn className="w-5 h-5" />,
 } as const;
-
-const galleryAspectClasses = {
-  landscape: "aspect-[16/10] md:col-span-2",
-  portrait: "aspect-[4/5]",
-  square: "aspect-square",
-} as const;
-
 const orderedTeam = (() => {
   if (team.length <= 1) {
     return team;
@@ -375,60 +369,19 @@ export default function Home() {
         </section>
 
         {/* Gallery */}
-        <section className="mt-14">
-          <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+        <section id="gallery" className="mt-14">
+          <div className="flex items-end justify-between gap-4">
             <div>
               <h2 className="text-3xl font-black">Gallery</h2>
-              <p className="mt-2 text-white/85 max-w-3xl">
-                A glimpse of the nights — classes, socials, and the people that make it what it is.
+              <p className="mt-2 max-w-3xl text-white/85">
+                A glimpse of the classes, the social dancing, and the energy in the room.
               </p>
             </div>
-
-            <div className="skeuo-chip rounded-2xl px-4 py-2 text-sm text-white/80">
-              Supports photos, portrait shots, and short looping video
-            </div>
           </div>
 
-          <div className="mt-6 grid auto-rows-fr gap-4 md:grid-cols-2 xl:grid-cols-3">
-            {galleryMedia.map((item) => (
-              <div
-                key={item.src}
-                className={`skeuo-card group overflow-hidden rounded-3xl ${galleryAspectClasses[item.aspect]}`}
-              >
-                <div className="relative h-full w-full bg-white/5">
-                  {item.kind === "video" ? (
-                    <>
-                      <video
-                        className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                        autoPlay
-                        muted
-                        loop
-                        playsInline
-                        preload="metadata"
-                        poster={item.poster}
-                        aria-label={item.alt}
-                      >
-                        <source src={item.src} type="video/mp4" />
-                      </video>
-
-                      <div className="pointer-events-none absolute left-3 top-3 skeuo-chip rounded-full px-3 py-1 text-xs font-semibold text-white/85">
-                        Motion
-                      </div>
-                    </>
-                  ) : (
-                    <Image
-                      src={item.src}
-                      alt={item.alt}
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-                      className="object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                    />
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
+          <GalleryMasonry media={galleryMedia} />
         </section>
+
 
         {/* Footer */}
         <footer className="mt-16 border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
