@@ -106,12 +106,12 @@ export const otherClasses: OtherClassLink[] = [
     where: "Adelphi Hotel, Liverpool",
     href: "https://www.merseysidelatinfestival.co.uk/",
     badge: "Event",
-  },  
+  },
   {
-    title: "Cuban y Dominican All-Dayer",
-    when: "13th June 2026",
-    where: "Arts Bar Hope Street, Liverpool",
-    href: "https://www.cubanydominican.com/",
+    title: "Power of Woman",
+    when: "15th May 2027",
+    where: "Artie's, 22 Hope Street, Liverpool",
+    href: "https://powerofwomansbk.co.uk/",
     badge: "Event",
   },
   {
