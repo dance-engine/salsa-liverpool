@@ -2,8 +2,6 @@
 
 import { useEffect, useRef } from "react";
 import Image from "next/image";
-import Masonry from "masonry-layout";
-import imagesLoaded from "imagesloaded";
 import type { GalleryMedia } from "./Data";
 
 type GalleryMasonryProps = {
@@ -12,7 +10,9 @@ type GalleryMasonryProps = {
 
 export default function GalleryMasonry({ media }: GalleryMasonryProps) {
   const containerRef = useRef<HTMLDivElement | null>(null);
-  const masonryRef = useRef<Masonry | null>(null);
+  const masonryRef = useRef<{ destroy: () => void; layout: () => void } | null>(
+    null
+  );
 
   useEffect(() => {
     const container = containerRef.current;
@@ -20,48 +20,66 @@ export default function GalleryMasonry({ media }: GalleryMasonryProps) {
       return;
     }
 
-    const masonry = new Masonry(container, {
-      itemSelector: ".gallery-masonry-item",
-      columnWidth: ".gallery-masonry-sizer",
-      gutter: ".gallery-masonry-gutter",
-      percentPosition: true,
-      horizontalOrder: false,
-      transitionDuration: "0.25s",
-    });
-
-    masonryRef.current = masonry;
-
-    const imgLoad = imagesLoaded(container);
-    const relayout = () => masonry.layout();
-
-    imgLoad.on("progress", relayout);
-    imgLoad.on("always", relayout);
-
     const videos = Array.from(container.querySelectorAll("video"));
-    for (const video of videos) {
-      video.addEventListener("loadedmetadata", relayout);
-      video.addEventListener("loadeddata", relayout);
-      video.addEventListener("canplay", relayout);
-    }
+    let isCancelled = false;
+    let cleanup: (() => void) | undefined;
 
-    const resizeObserver = new ResizeObserver(() => {
-      masonry.layout();
-    });
-    resizeObserver.observe(container);
+    void (async () => {
+      const [{ default: Masonry }, { default: imagesLoaded }] = await Promise.all(
+        [import("masonry-layout"), import("imagesloaded")]
+      );
 
-    return () => {
-      imgLoad.off("progress", relayout);
-      imgLoad.off("always", relayout);
-
-      for (const video of videos) {
-        video.removeEventListener("loadedmetadata", relayout);
-        video.removeEventListener("loadeddata", relayout);
-        video.removeEventListener("canplay", relayout);
+      if (isCancelled) {
+        return;
       }
 
-      resizeObserver.disconnect();
-      masonry.destroy();
-      masonryRef.current = null;
+      const masonry = new Masonry(container, {
+        itemSelector: ".gallery-masonry-item",
+        columnWidth: ".gallery-masonry-sizer",
+        gutter: ".gallery-masonry-gutter",
+        percentPosition: true,
+        horizontalOrder: false,
+        transitionDuration: "0.25s",
+      });
+
+      masonryRef.current = masonry;
+
+      const imgLoad = imagesLoaded(container);
+      const relayout = () => masonry.layout();
+
+      imgLoad.on("progress", relayout);
+      imgLoad.on("always", relayout);
+
+      for (const video of videos) {
+        video.addEventListener("loadedmetadata", relayout);
+        video.addEventListener("loadeddata", relayout);
+        video.addEventListener("canplay", relayout);
+      }
+
+      const resizeObserver = new ResizeObserver(() => {
+        masonry.layout();
+      });
+      resizeObserver.observe(container);
+
+      cleanup = () => {
+        imgLoad.off("progress", relayout);
+        imgLoad.off("always", relayout);
+
+        for (const video of videos) {
+          video.removeEventListener("loadedmetadata", relayout);
+          video.removeEventListener("loadeddata", relayout);
+          video.removeEventListener("canplay", relayout);
+        }
+
+        resizeObserver.disconnect();
+        masonry.destroy();
+        masonryRef.current = null;
+      };
+    })();
+
+    return () => {
+      isCancelled = true;
+      cleanup?.();
     };
   }, [media]);
 

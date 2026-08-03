@@ -228,7 +228,7 @@ export default function HeroMapModal({
 
             <div className="mt-5">
               <MapErrorBoundary fallback={fallback}>
-                <LazyMap width={600} height={300} lat={lat} lng={lng} />
+                <LazyMap lat={lat} lng={lng} />
               </MapErrorBoundary>
               <div className="mt-3 text-sm text-white/80">
                 Click the map marker to open directions in Google Maps.
