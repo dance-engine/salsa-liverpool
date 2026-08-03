@@ -42,6 +42,14 @@ export type QuickFact = {
   sub: string;
 };
 
+export type TemporaryNotice = {
+  eyebrow: string;
+  title: string;
+  body: string;
+  bullets: string[];
+  footnote: string;
+};
+
 export type Founder = {
   name: string;
   role: string;
@@ -98,6 +106,15 @@ export const quickFacts: QuickFact[] = [
   { label: "Every Sunday", sub: "Arts Bar" },
   { label: "After-class social", sub: "Practice + music" },
 ];
+
+export const temporaryVenueNotice: TemporaryNotice = {
+  eyebrow: "Temporary venue update",
+  title: "Classes are still on as normal.",
+  body:
+    "The venue is being renovated and renamed, but the dance studios are unaffected. Please use the temporary alternative access to the studios.",
+  bullets: [],
+  footnote: "Temporary notice.",
+};
 
 export const otherClasses: OtherClassLink[] = [
   {
