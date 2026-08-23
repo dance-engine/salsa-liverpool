@@ -154,6 +154,31 @@ export default function Home() {
                 </div> */}
               </div>
 
+              {sundayArtsBar.prices && (
+                <div className="mt-5 border-y border-white/15 py-4">
+                  <div className="text-sm font-semibold uppercase text-white/70">
+                    Class prices
+                  </div>
+                  <div className="mt-3 grid gap-4 sm:grid-cols-2 sm:gap-8">
+                    {sundayArtsBar.prices.map((price) => (
+                      <div key={price.duration}>
+                        <div className="font-semibold">{price.duration}</div>
+                        <dl className="mt-2 space-y-1 text-sm">
+                          <div className="flex items-baseline justify-between gap-3">
+                            <dt className="text-white/70">Standard</dt>
+                            <dd className="font-bold">{price.standard}</dd>
+                          </div>
+                          <div className="flex items-baseline justify-between gap-3">
+                            <dt className="text-white/70">Student</dt>
+                            <dd className="font-bold">{price.student}</dd>
+                          </div>
+                        </dl>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
+
               <div className="mt-5 space-y-3">
                 {sundayArtsBar.structure.map((s) => (
                   <div key={`${s.time}-${s.label}`} className="skeuo-chip-nested rounded-2xl p-4">

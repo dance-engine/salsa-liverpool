@@ -18,6 +18,7 @@ export type ClassInfo = {
   address: string;
   day: string;
   time: string;
+  prices?: { duration: string; standard: string; student: string }[];
   structure: TimeBlock[];
   notes: string[];
   lat: number;
@@ -146,6 +147,10 @@ export const sundayArtsBar: ClassInfo = {
   address: "22 Hope St, Liverpool L1 9BY",
   day: "Every Sunday",
   time: "Sign-in from 7:00pm - Classes start shortly after",
+  prices: [
+    { duration: "1 hour", standard: "£8.50", student: "£6" },
+    { duration: "2 hours", standard: "£13", student: "£10" },
+  ],
   structure: [
     { time: "7:00pm", label: "Arrive + sign in", detail: "Get settled, say hi, warm up." },
     {
