@@ -101,16 +101,6 @@ export default function Home() {
 
           {/* Right column: featured card */}
           <div className="skeuo-card-strong rounded-3xl p-5 sm:p-6">
-            <div className="temporary-notice rounded-2xl p-4">
-              <div className="inline-flex items-center rounded-full border border-white/25 bg-white/10 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-white/90">
-                {temporaryVenueNotice.eyebrow}
-              </div>
-              <div className="mt-2 text-lg font-black">{temporaryVenueNotice.title}</div>
-              <p className="mt-2 text-sm leading-relaxed text-white/90">
-                {temporaryVenueNotice.body}
-              </p>
-            </div>
-
             <div className="flex items-start justify-between gap-4">
               <div>
                 <div className="mt-5 text-sm text-white/80">Next up</div>
