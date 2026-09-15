@@ -104,7 +104,7 @@ export const navLinks: NavLink[] = [
 export const quickFacts: QuickFact[] = [
   { label: "No partner needed", sub: "We rotate" },
   { label: "All levels", sub: "Beginners welcome" },
-  { label: "Every Sunday", sub: "Arts Bar" },
+  { label: "Every Sunday", sub: "Artie's (Arts Bar Hope Street)" },
   { label: "After-class social", sub: "Practice + music" },
 ];
 
@@ -142,8 +142,8 @@ export const otherClasses: OtherClassLink[] = [
 ];
 
 export const sundayArtsBar: ClassInfo = {
-  title: "Sunday Salsa @ Arts Bar",
-  venue: "Arts Bar Hope Street",
+  title: "Sunday Salsa @ Artie's",
+  venue: "Artie's",
   address: "22 Hope St, Liverpool L1 9BY",
   day: "Every Sunday",
   time: "Sign-in from 7:00pm - Classes start shortly after",
